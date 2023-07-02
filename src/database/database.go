@@ -27,8 +27,8 @@ func NewSQLHandler() {
 		panic(err.Error())
 	}
 
-	DB.SetMaxIdleConns(config.Config.Db.MaxIdleConns)
-	DB.SetMaxOpenConns(config.Config.Db.MaxOpenConns)
+	DB.SetMaxIdleConns(config.DB.MaxIdleConns)
+	DB.SetMaxOpenConns(config.DB.MaxOpenConns)
 	tempHandler, err := &SQLHandler{
 		Conn: db,
 		Close: func() {
@@ -46,7 +46,7 @@ func NewSQLHandler() {
 }
 
 func gormConnect() *gorm.DB {
-	connStr := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", config.Config.Db.User, config.Config.Db.Password, config.Config.Db.Host, config.Config.Db.Port, config.Config.Db.Name)
+	connStr := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", config.DB.User, config.DB.Password, config.DB.Host, config.DB.Port, config.DB.Name)
 	db, err := gorm.Open(mysql.Open(connStr), &gorm.Config{})
 
 	if err != nil {

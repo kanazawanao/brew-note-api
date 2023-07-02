@@ -1,0 +1,16 @@
+components:
+  schemas:
+    PlacesSearchResponse:
+      type: object
+      description: 周辺施設検索
+      required:
+        - nextPageToken
+        - results
+      properties:
+        nextPageToken:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: ./Place.yml#/components/schemas/Place

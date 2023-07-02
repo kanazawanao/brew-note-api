@@ -12,7 +12,6 @@ import (
 type AppConfig struct {
 	Port    string
 	LogFile string
-	Db      DbConfig
 }
 
 type DbConfig struct {
@@ -26,6 +25,7 @@ type DbConfig struct {
 }
 
 var Config AppConfig
+var DB DbConfig
 
 func init() {
 	LoadConfig()
@@ -46,15 +46,16 @@ func LoadConfig() {
 	Config = AppConfig{
 		Port:    os.Getenv("PORT"),
 		LogFile: os.Getenv("LOG_FILE"),
-		Db: DbConfig{
-			User:         os.Getenv("DB_USER"),
-			Password:     os.Getenv("DB_PASSWORD"),
-			Host:         os.Getenv("DB_HOST"),
-			Port:         os.Getenv("DB_PORT"),
-			Name:         os.Getenv("DB_NAME"),
-			MaxIdleConns: maxIdleConns,
-			MaxOpenConns: maxOpenConns,
-		},
+	}
+
+	DB = DbConfig{
+		User:         os.Getenv("DB_USER"),
+		Password:     os.Getenv("DB_PASSWORD"),
+		Host:         os.Getenv("DB_HOST"),
+		Port:         os.Getenv("DB_PORT"),
+		Name:         os.Getenv("DB_NAME"),
+		MaxIdleConns: maxIdleConns,
+		MaxOpenConns: maxOpenConns,
 	}
 
 }

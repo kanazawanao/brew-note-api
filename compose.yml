@@ -54,7 +54,7 @@ services:
     volumes:
       - ./:/go/src
     ports:
-      - 1324:1324
+      - 1323:1323
     depends_on:
       db:
         condition: service_healthy

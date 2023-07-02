@@ -1,0 +1,14 @@
+components:
+  schemas:
+    Photo:
+      properties:
+        height:
+          type: integer
+        htmlAttributions:
+          type: array
+          items:
+            type: string
+        photoReference:
+          type: string
+        width:
+          type: integer

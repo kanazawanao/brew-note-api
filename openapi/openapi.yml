@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: tripig api
+tags:
+  - name: tripig
+    description: Tripig 関連のAPI
+paths:
+  /place/search/nearby:
+    $ref: ./paths/place/nearby.yml

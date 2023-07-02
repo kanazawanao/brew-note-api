@@ -1,0 +1,34 @@
+get:
+  summary: /place/search/nearby
+  description: Placeのリストを取得します
+  operationId: getNearby
+  tags:
+    - place
+  parameters:
+    - name: keyword
+      in: query
+      required: true
+      description: keyword
+      schema:
+        type: string
+    - name: placeType
+      in: query
+      required: false
+      description: placeType
+      schema:
+        type: string
+    - name: pageToken
+      in: query
+      required: false
+      description: pageToken
+      schema:
+        type: string
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/PlacesSearchResponse.yml#/components/schemas/PlacesSearchResponse"
+    500:
+      description: InternalServerError

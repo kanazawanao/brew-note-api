@@ -1,0 +1,36 @@
+components:
+  schemas:
+    Place:
+      properties:
+        businessStatus:
+          type: string
+        geometry:
+          $ref: ./Geometry.yml#/components/schemas/Geometry
+        icon:
+          type: string
+        name:
+          type: string
+        openNow:
+          type: boolean
+        photos:
+          type: array
+          items:
+            $ref: ./Photo.yml#/components/schemas/Photo
+        placeId:
+          type: string
+        priceLevel:
+          type: integer
+        rating:
+          type: integer
+        types:
+          type: array
+          items:
+            type: string
+        userRatingsTotal:
+          type: integer
+        vicinity:
+          type: string
+    PlaceList:
+      type: array
+      items:
+        $ref: ./Place.yml#/components/schemas/Place
