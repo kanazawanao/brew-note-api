@@ -1,0 +1,59 @@
+services:
+  db:
+    platform: linux/x86_64
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: trische
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      MYSQL_TCP_PORT: 3306
+      TZ: "UTC"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: db:3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    volumes:
+      - ./phpmyadmin/sessions:/sessions
+    ports:
+      - 8080:80
+    links:
+      - db
+
+  #  migrations:
+  #    build:
+  #      context: .
+  #      dockerfile: ./migrations/Dockerfile
+  #    volumes:
+  #      - ${PWD}/:/migrations
+  #    depends_on:
+  #      db:
+  #        condition: service_healthy
+
+  api:
+    build:
+      context: .
+      dockerfile: ./dev/Dockerfile
+    env_file: .env
+    command: air -c .air.toml
+    tty: true
+    volumes:
+      - ./:/go/src
+    ports:
+      - 1324:1324
+    depends_on:
+      db:
+        condition: service_healthy
