@@ -33,15 +33,16 @@ services:
     links:
       - db
 
-  #  migrations:
-  #    build:
-  #      context: .
-  #      dockerfile: ./migrations/Dockerfile
-  #    volumes:
-  #      - ${PWD}/:/migrations
-  #    depends_on:
-  #      db:
-  #        condition: service_healthy
+  migrations:
+    build:
+      context: .
+      dockerfile: ./migrations/Dockerfile
+    volumes:
+      - ./:/migrations
+    tty: true
+    depends_on:
+      db:
+        condition: service_healthy
 
   api:
     build:
