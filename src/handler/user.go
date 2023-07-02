@@ -3,8 +3,8 @@ package handler
 import (
 	"fmt"
 	"net/http"
-	"tripig/src/app/database"
-	"tripig/src/app/models"
+	"tripig/src/database"
+	"tripig/src/models"
 
 	"github.com/labstack/echo/v4"
 )

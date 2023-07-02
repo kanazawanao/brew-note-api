@@ -1,9 +1,9 @@
 package main
 
 import (
-	"tripig/src/app/config"
-	"tripig/src/app/database"
-	"tripig/src/app/router"
+	"tripig/src/config"
+	"tripig/src/database"
+	"tripig/src/router"
 )
 
 func main() {

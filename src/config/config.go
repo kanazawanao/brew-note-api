@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 	"strconv"
-	"tripig/src/app/utils"
+	"tripig/src/utils"
 
 	"github.com/joho/godotenv"
 )

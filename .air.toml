@@ -7,7 +7,7 @@ tmp_dir = "tmp"
 
 [build]
 # Just plain old shell command. You could use `make` as well.
-cmd = "CGO_ENABLED=0 go build -o app/main src/app/main.go"
+cmd = "CGO_ENABLED=0 go build -o app/main src/main.go"
 # Binary file yields from `cmd`.
 bin = "./app/main"
 # Customize binary, can setup environment variables when run your app.
@@ -17,7 +17,7 @@ include_ext = ["go", "tpl", "tmpl", "html"]
 # Ignore these filename extensions or directories.
 exclude_dir = []
 # Watch these directories if you specified.
-include_dir = ["src/app"]
+include_dir = ["src"]
 # Exclude files.
 exclude_file = []
 # Exclude specific regular expressions.

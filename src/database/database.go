@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	"tripig/src/app/config"
+	"tripig/src/config"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
