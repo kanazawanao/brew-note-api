@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -58,5 +57,4 @@ func LoadConfig() {
 		},
 	}
 
-	fmt.Print("*****************", Config.Port)
 }
