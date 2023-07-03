@@ -1,12 +1,10 @@
 package config
 
 import (
-	"log"
+	"fmt"
 	"os"
 	"strconv"
 	"tripig/src/utils"
-
-	"github.com/joho/godotenv"
 )
 
 type AppConfig struct {
@@ -33,11 +31,6 @@ func init() {
 }
 
 func LoadConfig() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalln(err)
-	}
-
 	maxIdleConnsStr := os.Getenv("DB_MAX_IDLE_CONNS")
 	maxIdleConns, _ := strconv.Atoi(maxIdleConnsStr)
 	maxOpenConnsStr := os.Getenv("DB_MAX_OPEN_CONNS")
@@ -58,4 +51,5 @@ func LoadConfig() {
 		MaxOpenConns: maxOpenConns,
 	}
 
+	fmt.Print(DB.User)
 }

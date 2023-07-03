@@ -2,3 +2,4 @@
 main
 tmp/*
 tripig.logfile
+openapi/generated

@@ -38,7 +38,7 @@ services:
       context: .
       dockerfile: ./migrations/Dockerfile
     volumes:
-      - ./:/migrations
+      - ./migrations:/migrations
     tty: true
     depends_on:
       db:

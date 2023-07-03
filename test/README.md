@@ -1,5 +1,9 @@
 # Test
 
 E2E テスト
-このテストでは実際にクライアントから与えられる request を送信してその結果を検証します。
-テストの対象は `openapi` ディレクトリ内の yml, および api の router ~ handler です。
+
+```
+docker compose build --no-cache api
+docker compose up
+docker compose exec -T -e CGO_ENABLED=0 api godotenv go test -p 1 -count=1 -short -cover -v ./test/e2e/...
+```

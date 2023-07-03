@@ -1,5 +1,11 @@
 development:
   dialect: mysql
-  dir: migrations/sql
+  dir: sql
+  datasource: docker:docker@tcp(db:3306)/tripig?charset=utf8mb4&collation=utf8mb4_general_ci&parseTime=true
+  table: migrations
+
+test:
+  dialect: mysql
+  dir: sql
   datasource: docker:docker@tcp(db:3306)/tripig?charset=utf8mb4&collation=utf8mb4_general_ci&parseTime=true
   table: migrations

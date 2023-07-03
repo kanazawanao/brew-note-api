@@ -1,0 +1,15 @@
+get:
+  summary: Get Users
+  description: userを取得します。
+  operationId:
+  tags:
+    - user
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/User.yml#/components/schemas/User"
+    500:
+      description: InternalServerError

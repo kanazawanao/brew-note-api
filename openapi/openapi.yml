@@ -8,3 +8,5 @@ tags:
 paths:
   /place/search/nearby:
     $ref: ./paths/place/nearby.yml
+  /users:
+    $ref: ./paths/users/index.yml

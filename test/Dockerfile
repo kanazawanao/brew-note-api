@@ -6,6 +6,8 @@ COPY go.mod go.sum ./
 COPY openapi/ ./openapi
 COPY src/ ./src
 COPY test/ ./test
+COPY .env ./.env
+COPY .env ./test/.env
 
 RUN go mod download
 

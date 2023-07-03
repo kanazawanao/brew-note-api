@@ -5,6 +5,7 @@ WORKDIR /go/api
 COPY go.mod go.sum ./
 COPY openapi/ ./openapi
 COPY src/ ./src
+COPY .env ./.env
 
 RUN go mod download
 
