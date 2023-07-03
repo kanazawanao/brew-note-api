@@ -1,5 +1,5 @@
 .env
-main
+app/*
 tmp/*
 tripig.logfile
 openapi/generated

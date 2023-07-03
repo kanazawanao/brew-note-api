@@ -1,11 +1,13 @@
 FROM golang:1.20.5-alpine
 
-WORKDIR /go/src
-COPY . .
+WORKDIR /app
 
 RUN apk upgrade --update && \
     apk --no-cache add git
-RUN go get -u github.com/cosmtrek/air && \
-    go build -o /go/bin/air github.com/cosmtrek/air
+RUN go install github.com/cosmtrek/air@latest
+
+COPY go.mod go.sum ./
+COPY openapi/ ./openapi
+RUN go mod download
 
 CMD ["air", "-c", ".air.toml"]
