@@ -3,7 +3,7 @@ get:
   description: userを取得します。
   operationId:
   tags:
-    - user
+    - tripig
   responses:
     200:
       description: ok
