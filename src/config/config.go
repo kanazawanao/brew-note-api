@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 	"tripig/src/utils"
@@ -50,6 +49,4 @@ func LoadConfig() {
 		MaxIdleConns: maxIdleConns,
 		MaxOpenConns: maxOpenConns,
 	}
-
-	fmt.Print(DB.User)
 }
