@@ -15,7 +15,10 @@ func NewRouter() *echo.Echo {
 	e.Use(middleware.Recover())
 
 	// healthcheck
-	e.GET("", handler.Healthcheck)
+	e.GET("/healthcheck", handler.Healthcheck)
+
+	e.GET("/users", handler.GetUsers)
+	e.POST("/users", handler.PostUsers)
 
 	return e
 }
