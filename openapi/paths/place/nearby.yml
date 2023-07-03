@@ -29,6 +29,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../../components/schemas/PlacesSearchResponse.yml#/components/schemas/PlacesSearchResponse"
+            $ref: "../components/schemas/PlacesSearchResponse.yml#/components/schemas/PlacesSearchResponse"
     500:
       description: InternalServerError
