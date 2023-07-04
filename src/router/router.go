@@ -17,8 +17,8 @@ func NewRouter() *echo.Echo {
 	// healthcheck
 	e.GET("/healthcheck", handler.Healthcheck)
 
-	e.GET("/users", handler.GetUsers)
-	e.POST("/users", handler.PostUsers)
+	e.GET("/tripig/users", handler.GetUsers)
+	e.POST("/tripig/users", handler.PostUsers)
 
 	return e
 }

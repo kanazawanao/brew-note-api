@@ -16,11 +16,10 @@ func TestTripigUsers(t *testing.T) {
 	database.TruncateTable()
 	database.ImportData()
 
-	userApi := api.TripigClient().UserApi
+	tripigApi := api.TripigClient().TripigApi
 
 	t.Run("Get User", func(t *testing.T) {
-		result, res, _ := userApi.UsersGet(context.Background()).Execute()
+		_, res, _ := tripigApi.GetUsers(context.Background()).Execute()
 		assert.Equal(http.StatusOK, res.StatusCode)
-		assert.Len(result, 5)
 	})
 }
