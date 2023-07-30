@@ -9,6 +9,8 @@ import (
 type AppConfig struct {
 	Port    string
 	LogFile string
+	GoogleMapApiKey string
+	OpenWeatherMapApiKey string
 }
 
 type DbConfig struct {
@@ -21,12 +23,12 @@ type DbConfig struct {
 	MaxOpenConns int
 }
 
-var Config AppConfig
+var App AppConfig
 var DB DbConfig
 
 func init() {
 	LoadConfig()
-	utils.LoggingSettings(Config.LogFile)
+	utils.LoggingSettings(App.LogFile)
 }
 
 func LoadConfig() {
@@ -35,9 +37,11 @@ func LoadConfig() {
 	maxOpenConnsStr := os.Getenv("DB_MAX_OPEN_CONNS")
 	maxOpenConns, _ := strconv.Atoi(maxOpenConnsStr)
 
-	Config = AppConfig{
+	App = AppConfig{
 		Port:    os.Getenv("PORT"),
 		LogFile: os.Getenv("LOG_FILE"),
+		GoogleMapApiKey: os.Getenv("GOOGLE_MAP_API_KEY"),
+		OpenWeatherMapApiKey: os.Getenv("OPEN_WEATHER_MAP_API_KEY"),
 	}
 
 	DB = DbConfig{

@@ -12,5 +12,5 @@ func main() {
 	defer database.Handler.Close()
 	router := router.NewRouter()
 	// Start server
-	router.Logger.Fatal(router.Start(":" + config.Config.Port))
+	router.Logger.Fatal(router.Start(":" + config.App.Port))
 }
