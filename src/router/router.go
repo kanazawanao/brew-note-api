@@ -11,6 +11,7 @@ func NewRouter() *echo.Echo {
 	e := echo.New()
 
 	// Middleware
+	e.Use(middleware.CORS())
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
@@ -19,6 +20,8 @@ func NewRouter() *echo.Echo {
 
 	e.GET("/tripig/users", handler.GetUsers)
 	e.POST("/tripig/users", handler.PostUsers)
+
+	e.GET("/tripig/places/nearby", handler.GetNearbySearch)
 
 	return e
 }

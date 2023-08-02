@@ -1,5 +1,5 @@
 get:
-  summary: /place/search/nearby
+  summary: /places/nearby
   description: Placeのリストを取得します
   operationId: getNearby
   tags:

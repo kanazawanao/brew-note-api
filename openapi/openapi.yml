@@ -6,7 +6,7 @@ tags:
   - name: tripig
     description: Tripig 関連のAPI
 paths:
-  /tripig/search/nearby:
-    $ref: ./paths/place/nearby.yml
+  /tripig/places/nearby:
+    $ref: ./paths/places/nearby.yml
   /tripig/users:
     $ref: ./paths/users/index.yml
