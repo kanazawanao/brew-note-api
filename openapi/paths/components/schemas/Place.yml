@@ -4,12 +4,14 @@ components:
       properties:
         businessStatus:
           type: string
-        geometry:
-          $ref: ./Geometry.yml#/components/schemas/Geometry
         icon:
           type: string
         name:
           type: string
+        lat:
+          type: integer
+        lng:
+          type: integer
         openNow:
           type: boolean
         photos:

@@ -1,8 +1,0 @@
-components:
-  schemas:
-    Viewport:
-      properties:
-        northeast:
-          $ref: ./Location.yml#/components/schemas/Location
-        southwest:
-          $ref: ./Location.yml#/components/schemas/Location

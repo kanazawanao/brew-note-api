@@ -4,9 +4,10 @@ import "googlemaps.github.io/maps"
 
 type Place struct {
 	BusinessStatus   string   `json:"businessStatus"`
-	Geometry         Geometry `json:"geometry"`
 	Icon             string   `json:"icon"`
 	Name             string   `json:"name"`
+	Lat              float32  `json:"lat"`
+	Lng              float32  `json:"lng"`
 	OpenNow          bool     `json:"openNow"`
 	Photos           []Photo  `json:"photos"`
 	PlaceId          string   `json:"placeId"`
@@ -20,9 +21,10 @@ type Place struct {
 func FromMapsPlace(apiPlace maps.PlacesSearchResult) *Place {
 	return &Place{
 		BusinessStatus:   apiPlace.BusinessStatus,
-		Geometry:         *FromMapsGeometry(apiPlace.Geometry),
 		Icon:             apiPlace.Icon,
 		Name:             apiPlace.Name,
+	  Lat:              float32(apiPlace.Geometry.Location.Lat),
+		Lng:              float32(apiPlace.Geometry.Location.Lng),
 		OpenNow:          false,
 		Photos:           FromMapsPhotos(apiPlace.Photos),
 		PlaceId:          apiPlace.PlaceID,
