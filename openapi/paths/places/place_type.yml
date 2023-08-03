@@ -1,0 +1,15 @@
+get:
+  summary: List Place Type
+  description: place type の一覧を取得
+  operationId: getPlaceTypeList
+  tags:
+    - tripig
+  response:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/PlaceType"

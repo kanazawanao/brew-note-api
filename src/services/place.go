@@ -3,7 +3,6 @@ package services
 import (
 	"context"
 	"log"
-	"os"
 
 	"tripig/src/config"
 	"tripig/src/models"
@@ -54,15 +53,13 @@ func parsePlaceType(placeType string, r *maps.NearbySearchRequest) {
 	}
 }
 
-// TODO: Query(検索条件) を引数に検索する
-func TextSearch() []maps.PlacesSearchResult {
-	apiKey := os.Getenv("GOOGLE_MAP_API_KEY")
-	c, err := maps.NewClient(maps.WithAPIKey(apiKey))
+func TextSearch(keyword string) []maps.PlacesSearchResult {
+	c, err := maps.NewClient(maps.WithAPIKey(config.App.GoogleMapApiKey))
 	if err != nil {
 		log.Fatalf("fatal error: %s", err)
 	}
 	r := &maps.TextSearchRequest{
-		Query: "東京タワー",
+		Query: keyword,
 	}
 
 	resp, err := c.TextSearch(context.Background(), r)

@@ -1,0 +1,15 @@
+components:
+  schemas:
+    PlaceType:
+      type: object
+      description: place type
+      required:
+        - id
+        - label
+      properties:
+        id:
+          type: string
+          description: place id
+        label:
+          type: string
+          description: display label

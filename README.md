@@ -2,5 +2,5 @@
 
 ```bash
 wsl
-cocker compose up
+docker compose up
 ```

@@ -1,7 +1,7 @@
 get:
   summary: /places/nearby
   description: Placeのリストを取得します
-  operationId: getNearby
+  operationId: searchNearby
   tags:
     - tripig
   parameters:
