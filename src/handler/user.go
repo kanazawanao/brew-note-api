@@ -1,25 +1,17 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
-	"tripig/src/database"
 	"tripig/src/models"
+	"tripig/src/services"
 
 	"github.com/labstack/echo/v4"
 )
 
-type Users []models.User
-
 // e.Get("/users/", GetUsers)
 func GetUsers(c echo.Context) error {
-	var users Users
-	result := database.Handler.Find(&users)
+	users := services.GetUsers()
 
-	if err := result.Error; err != nil {
-		fmt.Println(err)
-		return err
-	}
 	return c.JSON(http.StatusOK, users)
 }
 
@@ -29,6 +21,12 @@ func PostUsers(c echo.Context) error {
 	if err := c.Bind(user); err != nil {
 		return err
 	}
-	database.Handler.Create(&user)
+	return c.JSON(http.StatusOK, user)
+}
+
+// e.Get("/users/{id}", GetUser)
+func GetUSer(c echo.Context) error {
+	id := c.Param("id")
+	user := services.GetUser(id)
 	return c.JSON(http.StatusOK, user)
 }

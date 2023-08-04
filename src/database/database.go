@@ -61,6 +61,11 @@ func (h *SQLHandler) Find(out interface{}, where ...interface{}) *gorm.DB {
 	return h.Conn.Find(out, where...)
 }
 
+// First find firs record that match given conditions, order by primary key
+func (h *SQLHandler) First(out interface{}, where ...interface{}) *gorm.DB {
+	return h.Conn.First(out, where...)
+}
+
 // Create insert the value into database
 func (h *SQLHandler) Create(value interface{}) *gorm.DB {
 	return h.Conn.Create(value)

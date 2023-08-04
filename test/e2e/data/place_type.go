@@ -1,6 +1,6 @@
 package data
 
-var UserIDs []string = []string{
+var PlaceTypeIds []string = []string{
 	"01H7078G0SXTJ83FJCEXDCMKX3",
 	"01H7078G0SXTJ83FJCEXF0YP82",
 	"01H7078G0SXTJ83FJCEXZA9J94",

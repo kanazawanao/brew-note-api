@@ -2,13 +2,29 @@ package services
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"tripig/src/config"
+	"tripig/src/database"
 	"tripig/src/models"
 
 	"googlemaps.github.io/maps"
 )
+
+type PlaceTypes []models.PlaceType
+
+func GetPlaceTypeList() []models.PlaceType {
+	var placeTypes PlaceTypes
+	result := database.Handler.Find(&placeTypes)
+	fmt.Print(result)
+	
+	if err := result.Error; err != nil {
+		fmt.Println(err)
+	}
+
+	return placeTypes
+}
 
 func NearbySearch(keyword string, pageToken string, placeType string) models.PlacesSearchResponse {
 	c, err := maps.NewClient(maps.WithAPIKey(config.App.GoogleMapApiKey))

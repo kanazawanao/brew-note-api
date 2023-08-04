@@ -1,0 +1,22 @@
+get:
+  summary: Get a user by ID
+  description: userを取得します。
+  operationId: getUser
+  tags:
+    - tripig
+  parameters:
+    - in: path
+      name: id
+      description: user id
+      required: true
+      schema:
+        type: string
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/User.yml#/components/schemas/User"
+    500:
+      description: InternalServerError

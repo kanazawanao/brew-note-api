@@ -1,12 +1,22 @@
 -- +migrate Up
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT 'user_id',
+  `id` VARCHAR(255) NOT NULL COMMENT 'user_id',
   `name` VARCHAR(255) COMMENT 'user_name',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
   `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
   PRIMARY KEY (`id`)
-);
+) ENGINE=InnoDB COMMENT='user table';
+CREATE TABLE IF NOT EXISTS `place_types` (
+  `id` VARCHAR(255) NOT NULL COMMENT 'place_type_id',
+  `key` VARCHAR(255) NOT NULL COMMENT 'キー',
+  `name` VARCHAR(255) NOT NULL COMMENT '名称',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
+  `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB COMMENT='place type table';
 
 -- +migrate Down
 DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `place_types`;

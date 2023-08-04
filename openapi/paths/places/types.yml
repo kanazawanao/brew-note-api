@@ -1,7 +1,7 @@
 get:
-  summary: Get Users
-  description: user一覧を取得します。
-  operationId: getUsers
+  summary: List Place Type
+  description: place type の一覧を取得します。
+  operationId: getPlaceTypes
   tags:
     - tripig
   responses:
@@ -12,6 +12,6 @@ get:
           schema:
             type: array
             items:
-              $ref: "../components/schemas/User.yml#/components/schemas/User"
+              $ref: "../components/schemas/PlaceType.yml#/components/schemas/PlaceType"
     500:
       description: InternalServerError

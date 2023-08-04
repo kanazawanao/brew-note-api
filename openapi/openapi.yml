@@ -8,5 +8,9 @@ tags:
 paths:
   /tripig/places/nearby:
     $ref: ./paths/places/nearby.yml
+  /tripig/places/types:
+    $ref: ./paths/places/types.yml
   /tripig/users:
     $ref: ./paths/users/index.yml
+  /tripig/users/{id}:
+    $ref: ./paths/users/id.yml

@@ -15,3 +15,8 @@ func GetNearbySearch(c echo.Context) error {
 	res := services.NearbySearch(keyword, pageToken, placeType)
 	return c.JSON(http.StatusOK, res)
 }
+
+func GetPlaceTypeList(c echo.Context) error {
+	res := services.GetPlaceTypeList();
+	return c.JSON(http.StatusOK, res)
+}

@@ -1,10 +1,15 @@
 package models
 
 import (
+	"time"
+
 	"gorm.io/gorm"
 )
 
 type User struct {
-	gorm.Model
-	Name string
+	ID        string
+	Name      string
+	CreatedAt *time.Time
+	UpdatedAt *time.Time
+	DeletedAt gorm.DeletedAt
 }
