@@ -16,7 +16,7 @@ func GetNearbySearch(c echo.Context) error {
 	return c.JSON(http.StatusOK, res)
 }
 
-func GetPlaceTypeList(c echo.Context) error {
+func GetPlaceTypes(c echo.Context) error {
 	res := services.GetPlaceTypeList();
 	return c.JSON(http.StatusOK, res)
 }

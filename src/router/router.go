@@ -23,6 +23,7 @@ func NewRouter() *echo.Echo {
 	e.GET("/tripig/users/:id", handler.GetUSer)
 
 	e.GET("/tripig/places/nearby", handler.GetNearbySearch)
+	e.GET("/tripig/places/types", handler.GetPlaceTypes)
 
 	return e
 }
