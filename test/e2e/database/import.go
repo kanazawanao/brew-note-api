@@ -22,8 +22,8 @@ func ImportPlaceTypeDate() {
 	for _, id := range data.PlaceTypeIds {
 		placeType := &models.PlaceType{}
 		placeType.ID = id
-		placeType.Key = ""
-		placeType.Name = ""
+		placeType.Key = id + "key"
+		placeType.Name = id + "name"
 		now := time.Now()
 		placeType.CreatedAt = &now
 		DB.Create(&placeType)

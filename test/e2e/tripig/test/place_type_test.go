@@ -18,7 +18,7 @@ func TestTripigPlaceType(t *testing.T) {
 
 	tripigApi := api.TripigClient().TripigApi
 
-	t.Run("Get Place Type List", func(t *testing.T) {
+	t.Run("Get Place Types", func(t *testing.T) {
 		result, response, _ := tripigApi.GetPlaceTypes(context.Background()).Execute()
 		assert.Equal(http.StatusOK, response.StatusCode)
 		assert.Equal(5, len(result))

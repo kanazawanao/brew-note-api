@@ -17,7 +17,7 @@ type PlaceTypes []models.PlaceType
 func GetPlaceTypeList() []models.PlaceType {
 	var placeTypes PlaceTypes
 	result := database.Handler.Find(&placeTypes)
-	fmt.Print(result)
+	fmt.Print(placeTypes)
 	
 	if err := result.Error; err != nil {
 		fmt.Println(err)
