@@ -5,7 +5,8 @@ components:
       description: place type
       required:
         - id
-        - label
+        - key
+        - name
       properties:
         id:
           type: string
