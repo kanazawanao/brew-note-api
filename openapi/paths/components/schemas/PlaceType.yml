@@ -10,6 +10,9 @@ components:
         id:
           type: string
           description: place id
-        label:
+        key:
           type: string
-          description: display label
+          description: value
+        name:
+          type: string
+          description: display name
