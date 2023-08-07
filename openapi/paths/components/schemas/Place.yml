@@ -14,10 +14,10 @@ components:
           type: integer
         openNow:
           type: boolean
-        photos:
+        photoUrls:
           type: array
           items:
-            $ref: ./Photo.yml#/components/schemas/Photo
+            type: string
         placeId:
           type: string
         priceLevel:

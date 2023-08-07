@@ -1,27 +1,20 @@
 package models
 
-import "googlemaps.github.io/maps"
+import (
+	"tripig/src/config"
 
-type Photo struct {
-	Height           int      `json:"height"`
-	Width            int      `json:"width"`
-	HtmlAttributions []string `json:"htmlAttributions"`
-	PhotoReference   string   `json:"photoReference"`
+	"googlemaps.github.io/maps"
+)
+
+
+func FromMapsPhoto(apiPhoto maps.Photo) string {
+	return "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + apiPhoto.PhotoReference + "&key="+ config.App.GoogleMapApiKey
 }
 
-func FromMapsPhoto(apiPhoto maps.Photo) *Photo {
-	return &Photo{
-		Height:           apiPhoto.Height,
-		Width:            apiPhoto.Width,
-		HtmlAttributions: apiPhoto.HTMLAttributions,
-		PhotoReference:   apiPhoto.PhotoReference,
-	}
-}
-
-func FromMapsPhotos(apiPhotos []maps.Photo) []Photo {
-	result := []Photo{}
+func FromMapsPhotos(apiPhotos []maps.Photo) []string {
+	result := []string{}
 	for _, apiPhoto := range apiPhotos {
-		result = append(result, *FromMapsPhoto(apiPhoto))
+		result = append(result, FromMapsPhoto(apiPhoto))
 	}
 	return result
 }

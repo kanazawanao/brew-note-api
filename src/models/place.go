@@ -9,7 +9,7 @@ type Place struct {
 	Lat              float32  `json:"lat"`
 	Lng              float32  `json:"lng"`
 	OpenNow          bool     `json:"openNow"`
-	Photos           []Photo  `json:"photos"`
+	PhotoUrls        []string  `json:"photoUrls"`
 	PlaceId          string   `json:"placeId"`
 	PriceLevel       int      `json:"priceLevel"`
 	Rating           float32  `json:"rating"`
@@ -26,7 +26,7 @@ func FromMapsPlace(apiPlace maps.PlacesSearchResult) *Place {
 	  Lat:              float32(apiPlace.Geometry.Location.Lat),
 		Lng:              float32(apiPlace.Geometry.Location.Lng),
 		OpenNow:          false,
-		Photos:           FromMapsPhotos(apiPlace.Photos),
+		PhotoUrls:        FromMapsPhotos(apiPlace.Photos),
 		PlaceId:          apiPlace.PlaceID,
 		PriceLevel:       apiPlace.PriceLevel,
 		Rating:           apiPlace.Rating,

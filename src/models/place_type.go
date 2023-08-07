@@ -7,10 +7,10 @@ import (
 )
 
 type PlaceType struct {
-	ID        string
-	Key       string
-	Name      string
-	CreatedAt *time.Time
-	UpdatedAt *time.Time
-	DeletedAt gorm.DeletedAt
+	ID        string         `json:"id"`
+	Key       string         `json:"key"`
+	Name      string         `json:"name"`
+	CreatedAt *time.Time     `json:"createdAt"`
+	UpdatedAt *time.Time     `json:"updatedAt"`
+	DeletedAt gorm.DeletedAt `json:"deletedAt"`
 }
