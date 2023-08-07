@@ -1,8 +1,8 @@
 package services
 
 import (
-	"tripig/src/database"
-	"tripig/src/models"
+	"coffee-paws/src/database"
+	"coffee-paws/src/models"
 )
 
 type Users []models.User

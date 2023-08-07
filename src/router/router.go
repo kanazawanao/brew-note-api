@@ -1,7 +1,7 @@
 package router
 
 import (
-	"tripig/src/handler"
+	"coffee-paws/src/handler"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -18,12 +18,12 @@ func NewRouter() *echo.Echo {
 	// healthcheck
 	e.GET("/healthcheck", handler.Healthcheck)
 
-	e.GET("/tripig/users", handler.GetUsers)
-	e.POST("/tripig/users", handler.PostUsers)
-	e.GET("/tripig/users/:id", handler.GetUSer)
+	e.GET("/coffee-paws/users", handler.GetUsers)
+	e.POST("/coffee-paws/users", handler.PostUsers)
+	e.GET("/coffee-paws/users/:id", handler.GetUSer)
 
-	e.GET("/tripig/places/nearby", handler.GetNearbySearch)
-	e.GET("/tripig/places/types", handler.GetPlaceTypes)
+	e.GET("/coffee-paws/places/nearby", handler.GetNearbySearch)
+	e.GET("/coffee-paws/places/types", handler.GetPlaceTypes)
 
 	return e
 }

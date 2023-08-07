@@ -3,7 +3,7 @@ get:
   description: user一覧を取得します。
   operationId: getUsers
   tags:
-    - tripig
+    - coffee-paws
   responses:
     200:
       description: ok

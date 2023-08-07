@@ -1,8 +1,8 @@
 package database
 
 import (
+	"coffee-paws/src/config"
 	"fmt"
-	"tripig/src/config"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

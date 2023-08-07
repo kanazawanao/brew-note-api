@@ -1,9 +1,9 @@
 package handler
 
 import (
+	"coffee-paws/src/models"
+	"coffee-paws/src/services"
 	"net/http"
-	"tripig/src/models"
-	"tripig/src/services"
 
 	"github.com/labstack/echo/v4"
 )

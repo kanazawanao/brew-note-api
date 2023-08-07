@@ -1,9 +1,9 @@
 package database
 
 import (
+	"coffee-paws/src/models"
+	"coffee-paws/test/e2e/data"
 	"time"
-	"tripig/src/models"
-	"tripig/test/e2e/data"
 )
 
 func ImportUserData() {

@@ -3,7 +3,7 @@ get:
   description: Placeのリストを取得します
   operationId: searchNearby
   tags:
-    - tripig
+    - coffee-paws
   parameters:
     - name: keyword
       in: query

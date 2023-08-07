@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 
-	"tripig/src/config"
-	"tripig/src/database"
-	"tripig/src/models"
+	"coffee-paws/src/config"
+	"coffee-paws/src/database"
+	"coffee-paws/src/models"
 
 	"googlemaps.github.io/maps"
 )

@@ -1,12 +1,12 @@
 package api
 
 import (
-	"tripig/test/e2e/constant"
+	"coffee-paws/test/e2e/constant"
 
-	client "github.com/tripig/api"
+	client "github.com/coffee-paws/api"
 )
 
-func TripigClient() *client.APIClient {
+func CoffeePawsClient() *client.APIClient {
 	conf := client.NewConfiguration()
 	conf.Servers = client.ServerConfigurations{{
 		URL: constant.ServerURL,

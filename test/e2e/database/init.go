@@ -1,7 +1,7 @@
 package database
 
 import (
-	"tripig/src/config"
+	"coffee-paws/src/config"
 
 	mysqldriver "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"

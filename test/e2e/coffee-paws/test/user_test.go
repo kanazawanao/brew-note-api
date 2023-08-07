@@ -1,41 +1,41 @@
 package test
 
 import (
+	"coffee-paws/test/e2e/coffee-paws/api"
+	"coffee-paws/test/e2e/data"
+	"coffee-paws/test/e2e/database"
 	"context"
 	"net/http"
 	"testing"
-	"tripig/test/e2e/data"
-	"tripig/test/e2e/database"
-	"tripig/test/e2e/tripig/api"
 
 	"github.com/stretchr/testify/assert"
 )
 
-func TestTripigUsers(t *testing.T) {
+func TestCoffeePawsUsers(t *testing.T) {
 	assert := assert.New(t)
 
 	database.TruncateTable()
 	database.ImportUserData()
 
-	tripigApi := api.TripigClient().TripigApi
+	coffeePawsApi := api.CoffeePawsClient().CoffeePawsApi
 
 	t.Run("Get Users", func(t *testing.T) {
-		result, response, _ := tripigApi.GetUsers(context.Background()).Execute()
+		result, response, _ := coffeePawsApi.GetUsers(context.Background()).Execute()
 		assert.Equal(http.StatusOK, response.StatusCode)
 		assert.Equal(5, len(result))
 	})
 }
 
-func TestTripigUser(t *testing.T) {
+func TestCoffeePawsUser(t *testing.T) {
 	assert := assert.New(t)
 
 	database.TruncateTable()
 	database.ImportUserData()
 
-	tripigApi := api.TripigClient().TripigApi
+	coffeePawsApi := api.CoffeePawsClient().CoffeePawsApi
 
 	t.Run("Get User", func(t *testing.T) {
-		result, response, _ := tripigApi.GetUser(context.Background(), data.UserIDs[0]).Execute()
+		result, response, _ := coffeePawsApi.GetUser(context.Background(), data.UserIDs[0]).Execute()
 		assert.Equal(http.StatusOK, response.StatusCode)
 		assert.Equal(data.UserIDs[0], *result.Id)
 	})

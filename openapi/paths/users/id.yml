@@ -3,7 +3,7 @@ get:
   description: userを取得します。
   operationId: getUser
   tags:
-    - tripig
+    - coffee-paws
   parameters:
     - in: path
       name: id

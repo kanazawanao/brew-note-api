@@ -1,9 +1,9 @@
 package config
 
 import (
+	"coffee-paws/src/utils"
 	"os"
 	"strconv"
-	"tripig/src/utils"
 )
 
 type AppConfig struct {

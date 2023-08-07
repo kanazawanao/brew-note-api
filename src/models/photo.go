@@ -1,7 +1,7 @@
 package models
 
 import (
-	"tripig/src/config"
+	"coffee-paws/src/config"
 
 	"googlemaps.github.io/maps"
 )

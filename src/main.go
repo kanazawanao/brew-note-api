@@ -1,9 +1,9 @@
 package main
 
 import (
-	"tripig/src/config"
-	"tripig/src/database"
-	"tripig/src/router"
+	"coffee-paws/src/config"
+	"coffee-paws/src/database"
+	"coffee-paws/src/router"
 )
 
 func main() {
