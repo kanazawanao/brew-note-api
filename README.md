@@ -1,4 +1,4 @@
-# tripig-api
+# coffee-paws-api
 
 ```bash
 wsl
