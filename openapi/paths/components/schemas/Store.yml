@@ -1,0 +1,36 @@
+components:
+  schemas:
+    Store:
+      required:
+        - id
+        - name
+        - address
+        - url
+        - placeId
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        url:
+          type: string
+        placeId:
+          type: string
+    CreateStore:
+      type: object
+      required:
+        - name
+        - address
+        - url
+        - placeId
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        url:
+          type: string
+        placeId:
+          type: string

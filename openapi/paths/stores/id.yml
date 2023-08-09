@@ -1,0 +1,22 @@
+get:
+  summary: Get a store by ID
+  description: storeを取得します。
+  operationId: getStore
+  tags:
+    - coffee-paws
+  parameters:
+    - in: path
+      name: id
+      description: store id
+      required: true
+      schema:
+        type: string
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/Store.yml#/components/schemas/Store"
+    500:
+      description: InternalServerError

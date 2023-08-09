@@ -25,5 +25,7 @@ func NewRouter() *echo.Echo {
 	e.GET("/coffee-paws/places/nearby", handler.GetNearbySearch)
 	e.GET("/coffee-paws/places/types", handler.GetPlaceTypes)
 
+	e.POST("/coffee-paws/stores", handler.PostStore)
+
 	return e
 }

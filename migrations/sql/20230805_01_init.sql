@@ -17,6 +17,18 @@ CREATE TABLE IF NOT EXISTS `place_types` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB COMMENT='place type table';
 
+CREATE TABLE IF NOT EXISTS `stores` (
+  `id` VARCHAR(255) NOT NULL COMMENT 'store_id',
+  `name` VARCHAR(255) NOT NULL COMMENT '名称',
+  `address` VARCHAR(255) NOT NULL COMMENT '住所',
+  `url` VARCHAR(255) NOT NULL COMMENT 'url',
+  `place_id` VARCHAR(255) NOT NULL COMMENT 'place id',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
+  `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB COMMENT='store table';
+
 -- +migrate Down
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `place_types`;

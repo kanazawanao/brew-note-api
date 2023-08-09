@@ -1,0 +1,41 @@
+get:
+  summary: Get Stores
+  description: store一覧を取得します。
+  operationId: getStores
+  tags:
+    - coffee-paws
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Store.yml#/components/schemas/Store"
+    500:
+      description: InternalServerError
+
+post:
+  summary: Create Store
+  description: Sore情報を登録します
+  operationId: createStore
+  tags:
+    - coffee-paws
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Store.yml#/components/schemas/CreateStore"
+  responses:
+    201:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/Store.yml#/components/schemas/Store"
+    400:
+      description: ok
+    500:
+      description: ok

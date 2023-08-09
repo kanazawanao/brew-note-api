@@ -41,6 +41,7 @@ func NearbySearch(keyword string, pageToken string, placeType string) models.Pla
 
 	r := &maps.NearbySearchRequest{
 		Location:  &getResult[0].Geometry.Location,
+		Keyword:   "コーヒー豆",
 		Radius:    1500,
 		Language:  "ja",
 		PageToken: pageToken,
@@ -52,6 +53,10 @@ func NearbySearch(keyword string, pageToken string, placeType string) models.Pla
 	}
 
 	resp, err := c.NearbySearch(context.Background(), r)
+	l := &maps.PlaceDetailsRequest {
+		PlaceID: "",
+	}
+	c.PlaceDetails(context.Background(), l)
 	if err != nil {
 		log.Fatalf("fatal error: %s", err)
 	}

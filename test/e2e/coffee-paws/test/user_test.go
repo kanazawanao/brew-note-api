@@ -24,16 +24,7 @@ func TestCoffeePawsUsers(t *testing.T) {
 		assert.Equal(http.StatusOK, response.StatusCode)
 		assert.Equal(5, len(result))
 	})
-}
-
-func TestCoffeePawsUser(t *testing.T) {
-	assert := assert.New(t)
-
-	database.TruncateTable()
-	database.ImportUserData()
-
-	coffeePawsApi := api.CoffeePawsClient().CoffeePawsApi
-
+	
 	t.Run("Get User", func(t *testing.T) {
 		result, response, _ := coffeePawsApi.GetUser(context.Background(), data.UserIDs[0]).Execute()
 		assert.Equal(http.StatusOK, response.StatusCode)

@@ -14,7 +14,7 @@ func TestCoffeePawsPlaceType(t *testing.T) {
 	assert := assert.New(t)
 
 	database.TruncateTable()
-	database.ImportUserData()
+	database.ImportPlaceTypeDate()
 
 	coffeePawsApi := api.CoffeePawsClient().CoffeePawsApi
 
