@@ -1,5 +1,5 @@
 .env
 app/*
 tmp/*
-coffee-paws.logfile
+coffee_paws.logfile
 openapi/generated
