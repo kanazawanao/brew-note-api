@@ -1,0 +1,15 @@
+GET http://localhost:1323/coffee-paws/stores
+
+###
+
+POST http://localhost:1323/coffee-paws/stores
+content-type: application/json
+
+{
+    "name": "name",
+    "address": "address",
+    "url": "url",
+    "placeId": "placeId"
+}
+
+###

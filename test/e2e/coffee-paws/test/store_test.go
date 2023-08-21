@@ -25,8 +25,15 @@ func TestCoffeePawsPostStore(t *testing.T) {
 		request.Url = "url"
 		request.PlaceId = ""
 		result, response, _ := coffeePawsApi.CreateStore(context.Background()).CreateStore(*request).Execute()
+
 		assert.Equal(http.StatusOK, response.StatusCode)
 		assert.NotEmpty(result.Name)
 		assert.NotEmpty(result.Address)
+	})
+
+	t.Run("Get Stores", func(t *testing.T) {
+		result, response, _ := coffeePawsApi.GetStores(context.Background()).Execute()
+		assert.Equal(http.StatusOK, response.StatusCode)
+		assert.Equal(1, len(result))
 	})
 }
