@@ -25,7 +25,6 @@ func PostStore(c echo.Context) error {
 		Name: s.Name,
 		Address: s.Address,
 		Url: s.Url,
-		PlaceId: s.PlaceId,
 	}
 
 	res := services.PostStore(store)

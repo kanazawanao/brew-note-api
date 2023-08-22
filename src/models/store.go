@@ -12,7 +12,6 @@ type Store struct {
 	StoreType string         `json:"storeType"`
 	Address   string         `json:"address"`
 	Url       string         `json:"url"`
-	PlaceId   string         `json:"placeId"`
 	CreatedAt *time.Time     `json:"createdAt"`
 	UpdatedAt *time.Time     `json:"updatedAt"`
 	DeletedAt gorm.DeletedAt `json:"deletedAt"`

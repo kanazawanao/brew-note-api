@@ -7,7 +7,6 @@ components:
         - storeType
         - address
         - url
-        - placeId
       properties:
         id:
           type: string
@@ -19,8 +18,6 @@ components:
           type: string
         url:
           type: string
-        placeId:
-          type: string
     CreateStore:
       type: object
       required:
@@ -28,7 +25,6 @@ components:
         - storeType
         - address
         - url
-        - placeId
       properties:
         name:
           type: string
@@ -37,6 +33,4 @@ components:
         address:
           type: string
         url:
-          type: string
-        placeId:
           type: string

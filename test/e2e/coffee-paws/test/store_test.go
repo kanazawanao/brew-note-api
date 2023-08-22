@@ -23,7 +23,6 @@ func TestCoffeePawsPostStore(t *testing.T) {
 		request.Name = "name"
 		request.Address = "address"
 		request.Url = "url"
-		request.PlaceId = ""
 		result, response, _ := coffeePawsApi.CreateStore(context.Background()).CreateStore(*request).Execute()
 
 		assert.Equal(http.StatusOK, response.StatusCode)
