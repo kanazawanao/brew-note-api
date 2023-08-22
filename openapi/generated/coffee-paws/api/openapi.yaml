@@ -1,0 +1,323 @@
+openapi: 3.0.0
+info:
+  title: coffee-paws api
+  version: 0.0.1
+servers:
+- url: /
+tags:
+- description: Coffee Paws 関連のAPI
+  name: coffee-paws
+paths:
+  /coffee-paws/places/nearby:
+    get:
+      description: Placeのリストを取得します
+      operationId: searchNearby
+      parameters:
+      - description: keyword
+        in: query
+        name: keyword
+        required: true
+        schema:
+          type: string
+      - description: placeType
+        in: query
+        name: placeType
+        required: false
+        schema:
+          type: string
+      - description: pageToken
+        in: query
+        name: pageToken
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacesSearchResponse'
+          description: ok
+        "500":
+          description: InternalServerError
+      summary: /places/nearby
+      tags:
+      - coffee-paws
+  /coffee-paws/places/types:
+    get:
+      description: place type の一覧を取得します。
+      operationId: getPlaceTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PlaceType'
+                type: array
+          description: ok
+        "500":
+          description: InternalServerError
+      summary: List Place Type
+      tags:
+      - coffee-paws
+  /coffee-paws/users:
+    get:
+      description: user一覧を取得します。
+      operationId: getUsers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+                type: array
+          description: ok
+        "500":
+          description: InternalServerError
+      summary: Get Users
+      tags:
+      - coffee-paws
+  /coffee-paws/users/{id}:
+    get:
+      description: userを取得します。
+      operationId: getUser
+      parameters:
+      - description: user id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ok
+        "500":
+          description: InternalServerError
+      summary: Get a user by ID
+      tags:
+      - coffee-paws
+  /coffee-paws/stores:
+    get:
+      description: store一覧を取得します。
+      operationId: getStores
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Store'
+                type: array
+          description: ok
+        "500":
+          description: InternalServerError
+      summary: Get Stores
+      tags:
+      - coffee-paws
+    post:
+      description: Sore情報を登録します
+      operationId: createStore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStore'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Store'
+          description: ok
+        "400":
+          description: ok
+        "500":
+          description: ok
+      summary: Create Store
+      tags:
+      - coffee-paws
+components:
+  schemas:
+    PlacesSearchResponse:
+      description: 周辺施設検索
+      example:
+        nextPageToken: nextPageToken
+        results:
+        - types:
+          - types
+          - types
+          photoUrls:
+          - photoUrls
+          - photoUrls
+          lng: 6
+          icon: icon
+          placeId: placeId
+          rating: 5
+          userRatingsTotal: 5
+          businessStatus: businessStatus
+          priceLevel: 1
+          name: name
+          openNow: true
+          vicinity: vicinity
+          lat: 0
+        - types:
+          - types
+          - types
+          photoUrls:
+          - photoUrls
+          - photoUrls
+          lng: 6
+          icon: icon
+          placeId: placeId
+          rating: 5
+          userRatingsTotal: 5
+          businessStatus: businessStatus
+          priceLevel: 1
+          name: name
+          openNow: true
+          vicinity: vicinity
+          lat: 0
+      properties:
+        nextPageToken:
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/Place'
+          type: array
+      required:
+      - nextPageToken
+      - results
+      type: object
+    PlaceType:
+      description: place type
+      example:
+        name: name
+        id: id
+        key: key
+      properties:
+        id:
+          description: place id
+          type: string
+        key:
+          description: value
+          type: string
+        name:
+          description: display name
+          type: string
+      required:
+      - id
+      - key
+      - name
+      type: object
+    User:
+      example:
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    Store:
+      example:
+        storeType: storeType
+        address: address
+        name: name
+        id: id
+        url: url
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        storeType:
+          type: string
+        address:
+          type: string
+        url:
+          type: string
+      required:
+      - address
+      - id
+      - name
+      - storeType
+      - url
+    CreateStore:
+      example:
+        storeType: storeType
+        address: address
+        name: name
+        url: url
+      properties:
+        name:
+          type: string
+        storeType:
+          type: string
+        address:
+          type: string
+        url:
+          type: string
+      required:
+      - address
+      - name
+      - storeType
+      - url
+      type: object
+    Place:
+      example:
+        types:
+        - types
+        - types
+        photoUrls:
+        - photoUrls
+        - photoUrls
+        lng: 6
+        icon: icon
+        placeId: placeId
+        rating: 5
+        userRatingsTotal: 5
+        businessStatus: businessStatus
+        priceLevel: 1
+        name: name
+        openNow: true
+        vicinity: vicinity
+        lat: 0
+      properties:
+        businessStatus:
+          type: string
+        icon:
+          type: string
+        name:
+          type: string
+        lat:
+          type: integer
+        lng:
+          type: integer
+        openNow:
+          type: boolean
+        photoUrls:
+          items:
+            type: string
+          type: array
+        placeId:
+          type: string
+        priceLevel:
+          type: integer
+        rating:
+          type: integer
+        types:
+          items:
+            type: string
+          type: array
+        userRatingsTotal:
+          type: integer
+        vicinity:
+          type: string

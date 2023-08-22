@@ -2,4 +2,3 @@
 app/*
 tmp/*
 coffee_paws.logfile
-openapi/generated
