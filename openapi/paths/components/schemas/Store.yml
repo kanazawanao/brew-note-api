@@ -4,6 +4,7 @@ components:
       required:
         - id
         - name
+        - storeType
         - address
         - url
         - placeId
@@ -11,6 +12,8 @@ components:
         id:
           type: string
         name:
+          type: string
+        storeType:
           type: string
         address:
           type: string
@@ -22,11 +25,14 @@ components:
       type: object
       required:
         - name
+        - storeType
         - address
         - url
         - placeId
       properties:
         name:
+          type: string
+        storeType:
           type: string
         address:
           type: string

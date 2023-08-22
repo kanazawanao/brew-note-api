@@ -9,6 +9,7 @@ import (
 type Store struct {
 	ID        string         `json:"id"`
 	Name      string         `json:"name"`
+	StoreType string         `json:"storeType"`
 	Address   string         `json:"address"`
 	Url       string         `json:"url"`
 	PlaceId   string         `json:"placeId"`
