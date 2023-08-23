@@ -2,6 +2,8 @@ get:
   summary: Get a store by ID
   description: storeを取得します。
   operationId: getStore
+  security:
+    - Coffee-Paws-Auth-Token: []
   tags:
     - coffee-paws
   parameters:
