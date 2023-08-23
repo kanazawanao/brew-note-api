@@ -4,7 +4,6 @@ import (
 	"coffee-paws/src/models"
 	"coffee-paws/src/services"
 	"coffee-paws/src/utils"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -34,7 +33,6 @@ func PostStore(c echo.Context) error {
 
 // e.Get("/stores/", GetStores)
 func GetStores(c echo.Context) error {
-	fmt.Print(c.Request().Header.Get("Coffee-Paws-Auth-Token"))
 	users := services.GetStores()
 
 	return c.JSON(http.StatusOK, users)
