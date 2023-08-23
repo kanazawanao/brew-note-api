@@ -19,6 +19,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../components/schemas/Store.yml#/components/schemas/Store"
+            $ref: "../../components/schemas/Store.yml#/components/schemas/Store"
     500:
       description: InternalServerError

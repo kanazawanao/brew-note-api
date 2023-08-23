@@ -22,6 +22,7 @@ func PostStore(c echo.Context) error {
 	id := utils.GenerateULID()
 	store := models.Store{
 		ID: id,
+		StoreType: s.StoreType,
 		Name: s.Name,
 		Address: s.Address,
 		Url: s.Url,
@@ -36,4 +37,12 @@ func GetStores(c echo.Context) error {
 	users := services.GetStores()
 
 	return c.JSON(http.StatusOK, users)
+}
+
+// e.Get("/stores/:id", GetStores)
+func GetStore(c echo.Context) error {
+	id := c.Param("id")
+	store := services.GetStore(id)
+
+	return c.JSON(http.StatusOK, store)
 }

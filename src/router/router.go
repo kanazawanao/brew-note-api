@@ -27,6 +27,11 @@ func NewRouter() *echo.Echo {
 
 	e.POST("/coffee-paws/stores", handler.PostStore)
 	e.GET("/coffee-paws/stores", handler.GetStores)
+	e.GET("/coffee-paws/stores/:id", handler.GetStore)
+
+	e.POST("/coffee-paws/stores/:storeId/beans", handler.PostBean)
+	e.GET("/coffee-paws/stores/:storeId/beans", handler.GetBeans)
+	e.GET("/coffee-paws/stores/:storeId/beans/:beanId", handler.GetBean)
 
 	return e
 }

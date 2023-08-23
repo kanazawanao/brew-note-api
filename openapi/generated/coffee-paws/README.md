@@ -77,8 +77,11 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CoffeePawsApi* | [**CreateBean**](docs/CoffeePawsApi.md#createbean) | **Post** /coffee-paws/stores/{id}/beans | Create Bean
 *CoffeePawsApi* | [**CreateStore**](docs/CoffeePawsApi.md#createstore) | **Post** /coffee-paws/stores | Create Store
+*CoffeePawsApi* | [**GetBeans**](docs/CoffeePawsApi.md#getbeans) | **Get** /coffee-paws/stores/{id}/beans | Get Beans
 *CoffeePawsApi* | [**GetPlaceTypes**](docs/CoffeePawsApi.md#getplacetypes) | **Get** /coffee-paws/places/types | List Place Type
+*CoffeePawsApi* | [**GetStore**](docs/CoffeePawsApi.md#getstore) | **Get** /coffee-paws/stores/{id} | Get a store by ID
 *CoffeePawsApi* | [**GetStores**](docs/CoffeePawsApi.md#getstores) | **Get** /coffee-paws/stores | Get Stores
 *CoffeePawsApi* | [**GetUser**](docs/CoffeePawsApi.md#getuser) | **Get** /coffee-paws/users/{id} | Get a user by ID
 *CoffeePawsApi* | [**GetUsers**](docs/CoffeePawsApi.md#getusers) | **Get** /coffee-paws/users | Get Users
@@ -87,6 +90,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Bean](docs/Bean.md)
+ - [CreateBean](docs/CreateBean.md)
  - [CreateStore](docs/CreateStore.md)
  - [Place](docs/Place.md)
  - [PlaceType](docs/PlaceType.md)

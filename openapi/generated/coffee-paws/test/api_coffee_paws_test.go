@@ -22,6 +22,18 @@ func Test_openapi_CoffeePawsApiService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test CoffeePawsApiService CreateBean", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoffeePawsApi.CreateBean(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CoffeePawsApiService CreateStore", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -34,11 +46,37 @@ func Test_openapi_CoffeePawsApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test CoffeePawsApiService GetBeans", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.CoffeePawsApi.GetBeans(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test CoffeePawsApiService GetPlaceTypes", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CoffeePawsApi.GetPlaceTypes(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test CoffeePawsApiService GetStore", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.CoffeePawsApi.GetStore(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

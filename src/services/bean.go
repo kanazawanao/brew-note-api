@@ -5,7 +5,7 @@ import (
 	"coffee-paws/src/models"
 )
 
-func PostStore(store models.Store) models.Store {
+func PostBean(store models.Bean) models.Bean {
 	result := database.Handler.Create(&store)
 
 	if err := result.Error; err != nil {
@@ -14,26 +14,24 @@ func PostStore(store models.Store) models.Store {
 	return store
 }
 
-
-type Stores []models.Store
-
-func GetStores() []models.Store {
-	var stores Stores
-	result := database.Handler.Find(&stores)
+func GetBeans(storeId string) []models.Bean {
+	var beans []models.Bean
+	result := database.Handler.Where("store_id = ?", storeId).Find(&beans)
 
 	if err := result.Error; err != nil {
 		panic(err.Error())
 	}
 
-	return stores
+	return beans
 }
 
-func GetStore(id string) models.Store {
-	var store = models.Store{ID: id}
-	result := database.Handler.First(&store)
+
+func GetBean(id string) models.Bean {
+	var bean = models.Bean{ID: id}
+	result := database.Handler.First(&bean)
 	if err := result.Error; err != nil {
 		panic(err.Error())
 	}
 
-	return store
+	return bean
 }

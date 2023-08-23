@@ -28,7 +28,23 @@ CREATE TABLE IF NOT EXISTS `stores` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB COMMENT='store table';
 
+CREATE TABLE IF NOT EXISTS `beans` (
+  `id` VARCHAR(255) NOT NULL COMMENT 'beans id',
+  `store_id` VARCHAR(255) NOT NULL COMMENT 'store id(store or ec_store)',
+  `production_area` VARCHAR(255) NOT NULL COMMENT '産地',
+  `plantation_name` VARCHAR(255) NOT NULL COMMENT '農園',
+  `kind` VARCHAR(255) NOT NULL COMMENT '品種',
+  `roast_level` VARCHAR(255) NOT NULL COMMENT '焙煎度合い',
+  `price` VARCHAR(255) NOT NULL COMMENT '100g当たりの単価',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
+  `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB COMMENT='store table';
+
 -- +migrate Down
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `stores`;
 DROP TABLE IF EXISTS `place_types`;
+DROP TABLE IF EXISTS `beans`;

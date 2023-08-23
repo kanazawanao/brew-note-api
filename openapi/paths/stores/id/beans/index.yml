@@ -1,7 +1,7 @@
 get:
-  summary: Get Stores
-  description: store一覧を取得します。
-  operationId: getStores
+  summary: Get Beans
+  description: bean一覧を取得します。
+  operationId: getBeans
   tags:
     - coffee-paws
   responses:
@@ -12,14 +12,14 @@ get:
           schema:
             type: array
             items:
-              $ref: "../components/schemas/Store.yml#/components/schemas/Store"
+              $ref: "../../../components/schemas/Bean.yml#/components/schemas/Bean"
     500:
       description: Internal Server Error
 
 post:
-  summary: Create Store
+  summary: Create Bean
   description: Sore情報を登録します
-  operationId: createStore
+  operationId: createBean
   tags:
     - coffee-paws
   requestBody:
@@ -27,14 +27,14 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../components/schemas/Store.yml#/components/schemas/CreateStore"
+          $ref: "../../../components/schemas/Bean.yml#/components/schemas/CreateBean"
   responses:
     201:
       description: ok
       content:
         application/json:
           schema:
-            $ref: "../components/schemas/Store.yml#/components/schemas/Store"
+            $ref: "../../../components/schemas/Bean.yml#/components/schemas/Bean"
     400:
       description: Bad Request
     401:

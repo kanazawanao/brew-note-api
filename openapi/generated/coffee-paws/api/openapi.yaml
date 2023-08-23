@@ -116,7 +116,7 @@ paths:
                 type: array
           description: ok
         "500":
-          description: InternalServerError
+          description: Internal Server Error
       summary: Get Stores
       tags:
       - coffee-paws
@@ -137,10 +137,80 @@ paths:
                 $ref: '#/components/schemas/Store'
           description: ok
         "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+      summary: Create Store
+      tags:
+      - coffee-paws
+  /coffee-paws/stores/{id}:
+    get:
+      description: storeを取得します。
+      operationId: getStore
+      parameters:
+      - description: store id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Store'
           description: ok
         "500":
+          description: InternalServerError
+      security:
+      - Coffee-Paws-Auth-Token: []
+      summary: Get a store by ID
+      tags:
+      - coffee-paws
+  /coffee-paws/stores/{id}/beans:
+    get:
+      description: bean一覧を取得します。
+      operationId: getBeans
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Bean'
+                type: array
           description: ok
-      summary: Create Store
+        "500":
+          description: Internal Server Error
+      summary: Get Beans
+      tags:
+      - coffee-paws
+    post:
+      description: Sore情報を登録します
+      operationId: createBean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBean'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bean'
+          description: ok
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+      summary: Create Bean
       tags:
       - coffee-paws
 components:
@@ -270,6 +340,63 @@ components:
       - name
       - storeType
       - url
+      type: object
+    Bean:
+      example:
+        roastLevel: roastLevel
+        productionArea: productionArea
+        kind: kind
+        price: price
+        plantationName: plantationName
+        id: id
+        storeId: storeId
+      properties:
+        id:
+          type: string
+        storeId:
+          type: string
+        productionArea:
+          type: string
+        plantationName:
+          type: string
+        kind:
+          type: string
+        roastLevel:
+          type: string
+        price:
+          type: string
+      required:
+      - id
+      - kind
+      - plantationName
+      - price
+      - productionArea
+      - roastLevel
+      - storeId
+    CreateBean:
+      example:
+        roastLevel: roastLevel
+        productionArea: productionArea
+        kind: kind
+        price: price
+        plantationName: plantationName
+      properties:
+        productionArea:
+          type: string
+        plantationName:
+          type: string
+        kind:
+          type: string
+        roastLevel:
+          type: string
+        price:
+          type: string
+      required:
+      - kind
+      - plantationName
+      - price
+      - productionArea
+      - roastLevel
       type: object
     Place:
       example:

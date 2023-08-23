@@ -1,0 +1,45 @@
+components:
+  schemas:
+    Bean:
+      required:
+        - id
+        - storeId
+        - productionArea
+        - plantationName
+        - kind
+        - roastLevel
+        - price
+      properties:
+        id:
+          type: string
+        storeId:
+          type: string
+        productionArea:
+          type: string
+        plantationName:
+          type: string
+        kind:
+          type: string
+        roastLevel:
+          type: string
+        price:
+          type: string
+    CreateBean:
+      type: object
+      required:
+        - productionArea
+        - plantationName
+        - kind
+        - roastLevel
+        - price
+      properties:
+        productionArea:
+          type: string
+        plantationName:
+          type: string
+        kind:
+          type: string
+        roastLevel:
+          type: string
+        price:
+          type: string

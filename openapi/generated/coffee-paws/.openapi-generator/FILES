@@ -6,7 +6,9 @@ api/openapi.yaml
 api_coffee_paws.go
 client.go
 configuration.go
+docs/Bean.md
 docs/CoffeePawsApi.md
+docs/CreateBean.md
 docs/CreateStore.md
 docs/Place.md
 docs/PlaceType.md
@@ -16,6 +18,8 @@ docs/User.md
 git_push.sh
 go.mod
 go.sum
+model_bean.go
+model_create_bean.go
 model_create_store.go
 model_place.go
 model_place_type.go

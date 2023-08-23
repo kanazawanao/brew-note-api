@@ -16,3 +16,7 @@ paths:
     $ref: ./paths/users/id.yml
   /coffee-paws/stores:
     $ref: ./paths/stores/index.yml
+  /coffee-paws/stores/{id}:
+    $ref: ./paths/stores/id/index.yml
+  /coffee-paws/stores/{id}/beans:
+    $ref: ./paths/stores/id/beans/index.yml

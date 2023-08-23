@@ -9,8 +9,25 @@ content-type: application/json
     "name": "name",
     "storeType": "store",
     "address": "address",
-    "url": "url",
-    "placeId": "placeId"
+    "url": "url"
 }
 
 ###
+
+GET http://localhost:1323/coffee-paws/stores/01H8HCE5KEGE47AMPW96C196FV
+
+###
+
+GET http://localhost:1323/coffee-paws/stores/01H8HCE5KEGE47AMPW96C196FV/beans
+
+###
+POST http://localhost:1323/coffee-paws/stores/01H8HCE5KEGE47AMPW96C196FV/beans
+content-type: application/json
+
+{
+    "productionArea": "エチオピア",
+    "plantationName": "農園",
+    "kind": "品種",
+    "roastLevel": "浅煎り",
+    "price": "200g/1000円"
+}
