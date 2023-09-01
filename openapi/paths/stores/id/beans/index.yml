@@ -18,10 +18,17 @@ get:
 
 post:
   summary: Create Bean
-  description: Sore情報を登録します
+  description: お店にBean情報を登録します
   operationId: createBean
   tags:
     - coffee-paws
+  parameters:
+    - in: path
+      name: id
+      description: store id
+      required: true
+      schema:
+        type: string
   requestBody:
     required: true
     content:
