@@ -23,7 +23,9 @@ components:
         roastLevel:
           type: string
         price:
-          type: string
+          type: number
+          nullable: true
+          format: double
     CreateBean:
       type: object
       required:
@@ -42,4 +44,6 @@ components:
         roastLevel:
           type: string
         price:
-          type: string
+          type: number
+          nullable: true
+          format: double

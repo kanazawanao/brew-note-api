@@ -1,7 +1,7 @@
 get:
   summary: Get Stores
   description: store一覧を取得します。
-  operationId: getStores
+  operationId: searchStores
   tags:
     - coffee-paws
   responses:
