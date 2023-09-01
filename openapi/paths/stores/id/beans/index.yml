@@ -1,9 +1,16 @@
 get:
   summary: Get Beans
-  description: bean一覧を取得します。
+  description: お店のbean一覧を取得します。
   operationId: getBeans
   tags:
     - coffee-paws
+  parameters:
+    - in: path
+      name: id
+      description: store id
+      required: true
+      schema:
+        type: string
   responses:
     200:
       description: ok
