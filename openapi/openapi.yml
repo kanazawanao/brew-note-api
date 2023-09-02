@@ -6,6 +6,8 @@ tags:
   - name: coffee-paws
     description: Coffee Paws 関連のAPI
 paths:
+  /coffee-paws/me:
+    $ref: ./paths/me/index.yml
   /coffee-paws/places/nearby:
     $ref: ./paths/places/nearby.yml
   /coffee-paws/places/types:

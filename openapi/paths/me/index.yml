@@ -1,0 +1,17 @@
+get:
+  summary: Get Profile
+  description: ログイン中のUser情報を返します
+  operationId: getProfile
+  security:
+    - Coffee-Paws-Auth-Token: []
+  tags:
+    - coffee-paws
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/User.yml#/components/schemas/User"
+    500:
+      description: InternalServerError

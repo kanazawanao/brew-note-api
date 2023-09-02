@@ -6,3 +6,7 @@ components:
           type: string
         name:
           type: string
+        email:
+          type: string
+        nickname:
+          type: string

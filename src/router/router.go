@@ -17,10 +17,11 @@ func NewRouter() *echo.Echo {
 
 	// healthcheck
 	e.GET("/healthcheck", handler.Healthcheck)
+	e.GET("/coffee-paws/me", handler.GetUsers)
 
 	e.GET("/coffee-paws/users", handler.GetUsers)
 	e.POST("/coffee-paws/users", handler.PostUsers)
-	e.GET("/coffee-paws/users/:id", handler.GetUSer)
+	e.GET("/coffee-paws/users/:id", handler.GetUser)
 
 	e.GET("/coffee-paws/places/nearby", handler.GetNearbySearch)
 	e.GET("/coffee-paws/places/types", handler.GetPlaceTypes)

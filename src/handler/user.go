@@ -25,7 +25,7 @@ func PostUsers(c echo.Context) error {
 }
 
 // e.Get("/users/{id}", GetUser)
-func GetUSer(c echo.Context) error {
+func GetUser(c echo.Context) error {
 	id := c.Param("id")
 	user := services.GetUser(id)
 	return c.JSON(http.StatusOK, user)

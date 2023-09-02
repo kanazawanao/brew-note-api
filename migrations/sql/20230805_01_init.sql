@@ -1,7 +1,8 @@
 -- +migrate Up
 CREATE TABLE IF NOT EXISTS `users` (
   `id` VARCHAR(255) NOT NULL COMMENT 'user_id',
-  `name` VARCHAR(255) COMMENT 'user_name',
+  `name` VARCHAR(255) COMMENT 'user name',
+  `nick_name` VARCHAR(255) COMMENT 'user nick name',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
   `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
@@ -27,10 +28,9 @@ CREATE TABLE IF NOT EXISTS `stores` (
   `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB COMMENT='store table';
-
 CREATE TABLE IF NOT EXISTS `beans` (
   `id` VARCHAR(255) NOT NULL COMMENT 'beans id',
-  `store_id` VARCHAR(255) NOT NULL COMMENT 'store id(store or ec_store)',
+  `store_id` VARCHAR(255) NOT NULL COMMENT 'store id',
   `production_area` VARCHAR(255) NOT NULL COMMENT '産地',
   `plantation_name` VARCHAR(255) NOT NULL COMMENT '農園',
   `kind` VARCHAR(255) NOT NULL COMMENT '品種',
@@ -41,7 +41,20 @@ CREATE TABLE IF NOT EXISTS `beans` (
   `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`store_id`) REFERENCES `stores` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB COMMENT='store table';
+) ENGINE=InnoDB COMMENT='bean table';
+CREATE TABLE IF NOT EXISTS `recipes` (
+  `id` VARCHAR(255) NOT NULL COMMENT 'recipes id',
+  `store_id` VARCHAR(255) NOT NULL COMMENT 'user id',
+  `step` VARCHAR(255) NOT NULL COMMENT 'ステップ数',
+  `description` VARCHAR(255) NOT NULL COMMENT '説明',
+  `temperature` VARCHAR(255) NOT NULL COMMENT '温度',
+  `seconds` VARCHAR(255) NOT NULL COMMENT '秒数',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
+  `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date',
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB COMMENT='recipe table';
 
 -- +migrate Down
 DROP TABLE IF EXISTS `users`;
