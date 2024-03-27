@@ -1,4 +1,4 @@
-FROM golang:1.20.5-alpine
+FROM golang:1.21.8-alpine
 WORKDIR /migrations
 COPY . .
 RUN apk add --no-cache gcc libc-dev
