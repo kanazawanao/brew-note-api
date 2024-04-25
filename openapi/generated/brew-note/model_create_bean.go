@@ -20,23 +20,19 @@ var _ MappedNullable = &CreateBean{}
 // CreateBean struct for CreateBean
 type CreateBean struct {
 	ProductionArea string `json:"productionArea"`
-	PlantationName string `json:"plantationName"`
 	Kind string `json:"kind"`
 	RoastLevel string `json:"roastLevel"`
-	Price NullableFloat64 `json:"price"`
 }
 
 // NewCreateBean instantiates a new CreateBean object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateBean(productionArea string, plantationName string, kind string, roastLevel string, price NullableFloat64) *CreateBean {
+func NewCreateBean(productionArea string, kind string, roastLevel string) *CreateBean {
 	this := CreateBean{}
 	this.ProductionArea = productionArea
-	this.PlantationName = plantationName
 	this.Kind = kind
 	this.RoastLevel = roastLevel
-	this.Price = price
 	return &this
 }
 
@@ -70,30 +66,6 @@ func (o *CreateBean) GetProductionAreaOk() (*string, bool) {
 // SetProductionArea sets field value
 func (o *CreateBean) SetProductionArea(v string) {
 	o.ProductionArea = v
-}
-
-// GetPlantationName returns the PlantationName field value
-func (o *CreateBean) GetPlantationName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.PlantationName
-}
-
-// GetPlantationNameOk returns a tuple with the PlantationName field value
-// and a boolean to check if the value has been set.
-func (o *CreateBean) GetPlantationNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PlantationName, true
-}
-
-// SetPlantationName sets field value
-func (o *CreateBean) SetPlantationName(v string) {
-	o.PlantationName = v
 }
 
 // GetKind returns the Kind field value
@@ -144,32 +116,6 @@ func (o *CreateBean) SetRoastLevel(v string) {
 	o.RoastLevel = v
 }
 
-// GetPrice returns the Price field value
-// If the value is explicit nil, the zero value for float64 will be returned
-func (o *CreateBean) GetPrice() float64 {
-	if o == nil || o.Price.Get() == nil {
-		var ret float64
-		return ret
-	}
-
-	return *o.Price.Get()
-}
-
-// GetPriceOk returns a tuple with the Price field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateBean) GetPriceOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Price.Get(), o.Price.IsSet()
-}
-
-// SetPrice sets field value
-func (o *CreateBean) SetPrice(v float64) {
-	o.Price.Set(&v)
-}
-
 func (o CreateBean) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -181,10 +127,8 @@ func (o CreateBean) MarshalJSON() ([]byte, error) {
 func (o CreateBean) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["productionArea"] = o.ProductionArea
-	toSerialize["plantationName"] = o.PlantationName
 	toSerialize["kind"] = o.Kind
 	toSerialize["roastLevel"] = o.RoastLevel
-	toSerialize["price"] = o.Price.Get()
 	return toSerialize, nil
 }
 

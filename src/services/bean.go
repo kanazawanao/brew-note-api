@@ -14,9 +14,10 @@ func PostBean(store models.Bean) models.Bean {
 	return store
 }
 
-func GetBeans(storeId string) []models.Bean {
+func GetBeans() []models.Bean {
 	var beans []models.Bean
-	result := database.Handler.Where("store_id = ?", storeId).Find(&beans)
+	// result := database.Handler.Where("user = ?", storeId).Find(&beans)
+	result := database.Handler.Find(&beans)
 
 	if err := result.Error; err != nil {
 		panic(err.Error())
@@ -24,7 +25,6 @@ func GetBeans(storeId string) []models.Bean {
 
 	return beans
 }
-
 
 func GetBean(id string) models.Bean {
 	var bean = models.Bean{ID: id}

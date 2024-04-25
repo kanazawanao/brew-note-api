@@ -30,13 +30,13 @@ type CustomClaims struct {
 	jwt.StandardClaims
 }
 
-func checkFirebaseJWT(tokenString string)(CustomClaims,error) {
+func checkFirebaseJWT(tokenString string) (CustomClaims, error) {
 	resp, err := http.Get("https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com")
 	if err != nil {
 		log.Fatalf("Failed to make a request: %v", err)
 	}
 	defer resp.Body.Close()
-	
+
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalf("Failed to read the response body: %v", err)
@@ -55,15 +55,15 @@ func checkFirebaseJWT(tokenString string)(CustomClaims,error) {
 	headerJson, err := base64.RawURLEncoding.DecodeString(parts[0])
 	if err != nil {
 		log.Fatalf("Error decoding JWT header: %v", err)
-		return CustomClaims{},err
+		return CustomClaims{}, err
 	}
-	
+
 	var header map[string]interface{}
-	
+
 	err = json.Unmarshal(headerJson, &header)
 	if err != nil {
 		log.Fatalf("Error unmarshalling JWT header: %v", err)
-		return CustomClaims{},err
+		return CustomClaims{}, err
 	}
 
 	kid := header["kid"].(string)
@@ -71,15 +71,15 @@ func checkFirebaseJWT(tokenString string)(CustomClaims,error) {
 	block, _ := pem.Decode([]byte(certString))
 	if block == nil {
 		log.Fatalf("failed to parse PEM block containing the public key")
-		return CustomClaims{},err
+		return CustomClaims{}, err
 	}
 
 	cert, err := x509.ParseCertificate(block.Bytes)
 	if err != nil {
 		log.Fatalf("failed to parse certificate: %v", err)
-		return CustomClaims{},err
+		return CustomClaims{}, err
 	}
-	
+
 	rsaPublicKey := cert.PublicKey.(*rsa.PublicKey)
 
 	// 署名を検証
@@ -89,16 +89,16 @@ func checkFirebaseJWT(tokenString string)(CustomClaims,error) {
 
 	if err != nil {
 		log.Fatalf("Error while parsing token: %v\n", err)
-		return CustomClaims{},err
+		return CustomClaims{}, err
 	}
 
 	if claims, ok := token.Claims.(*CustomClaims); ok && token.Valid {
 		if time.Unix(claims.Exp, 0).Before(time.Now()) {
-			return CustomClaims{},errors.New("Token is valid. But token is expired.")
+			return CustomClaims{}, errors.New("Token is valid. But token is expired.")
 		} else {
 			return *claims, nil
 		}
 	} else {
-		return CustomClaims{},errors.New("Token is not valid")
+		return CustomClaims{}, errors.New("Token is not valid")
 	}
 }

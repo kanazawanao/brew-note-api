@@ -1,13 +1,12 @@
 GET http://localhost:1323/beans
 
 ###
+
 POST http://localhost:1323/beans
 content-type: application/json
 
 {
     "productionArea": "エチオピア",
-    "plantationName": "農園",
     "kind": "品種",
-    "roastLevel": "浅煎り",
-    "price": "200g/1000円"
+    "roastLevel": "浅煎り"
 }

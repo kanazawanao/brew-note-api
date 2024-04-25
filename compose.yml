@@ -46,6 +46,7 @@ services:
     build:
       context: .
       dockerfile: ./dev/Dockerfile
+    container_name: brew-note-api
     env_file: .env
     volumes:
       - ./:/app

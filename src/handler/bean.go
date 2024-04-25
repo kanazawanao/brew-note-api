@@ -4,6 +4,7 @@ import (
 	"brew-note/src/models"
 	"brew-note/src/services"
 	"brew-note/src/utils"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -19,14 +20,14 @@ func PostBean(c echo.Context) error {
 		log.Printf("err %v", err.Error())
 		return c.String(http.StatusBadRequest, "bad request")
 	}
+	fmt.Print(s)
 	id := utils.GenerateULID()
 	bean := models.Bean{
-		ID: id,
-		UserId: "",
+		ID:             id,
+		UserId:         "",
 		ProductionArea: s.ProductionArea,
-		PlantationName: s.PlantationName,
-		Kind: s.Kind,
-		RoastLevel: s.RoastLevel,
+		Kind:           s.Kind,
+		RoastLevel:     s.RoastLevel,
 	}
 
 	res := services.PostBean(bean)
@@ -35,8 +36,8 @@ func PostBean(c echo.Context) error {
 
 // e.Get("/beans", GetBeans)
 func GetBeans(c echo.Context) error {
-	storeId := c.Param("storeId")
-	beans := services.GetBeans(storeId)
+	beans := services.GetBeans()
+	fmt.Print("test")
 
 	return c.JSON(http.StatusOK, beans)
 }

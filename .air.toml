@@ -37,6 +37,8 @@ send_interrupt = false
 # Delay after sending Interrupt signal
 kill_delay = 500 # ms
 
+poll = true
+
 [log]
 # Show log time
 time = false

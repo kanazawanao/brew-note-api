@@ -7,9 +7,9 @@ import (
 )
 
 type AppConfig struct {
-	Port    string
-	LogFile string
-	GoogleMapApiKey string
+	Port                 string
+	LogFile              string
+	GoogleMapApiKey      string
 	OpenWeatherMapApiKey string
 }
 
@@ -38,9 +38,9 @@ func LoadConfig() {
 	maxOpenConns, _ := strconv.Atoi(maxOpenConnsStr)
 
 	App = AppConfig{
-		Port:    os.Getenv("PORT"),
-		LogFile: os.Getenv("LOG_FILE"),
-		GoogleMapApiKey: os.Getenv("GOOGLE_MAP_API_KEY"),
+		Port:                 os.Getenv("PORT"),
+		LogFile:              os.Getenv("LOG_FILE"),
+		GoogleMapApiKey:      os.Getenv("GOOGLE_MAP_API_KEY"),
 		OpenWeatherMapApiKey: os.Getenv("OPEN_WEATHER_MAP_API_KEY"),
 	}
 

@@ -22,7 +22,6 @@ type Bean struct {
 	Id string `json:"id"`
 	BeanId string `json:"beanId"`
 	ProductionArea string `json:"productionArea"`
-	PlantationName string `json:"plantationName"`
 	Kind string `json:"kind"`
 	RoastLevel string `json:"roastLevel"`
 	Price NullableFloat64 `json:"price"`
@@ -32,12 +31,11 @@ type Bean struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBean(id string, beanId string, productionArea string, plantationName string, kind string, roastLevel string, price NullableFloat64) *Bean {
+func NewBean(id string, beanId string, productionArea string, kind string, roastLevel string, price NullableFloat64) *Bean {
 	this := Bean{}
 	this.Id = id
 	this.BeanId = beanId
 	this.ProductionArea = productionArea
-	this.PlantationName = plantationName
 	this.Kind = kind
 	this.RoastLevel = roastLevel
 	this.Price = price
@@ -122,30 +120,6 @@ func (o *Bean) GetProductionAreaOk() (*string, bool) {
 // SetProductionArea sets field value
 func (o *Bean) SetProductionArea(v string) {
 	o.ProductionArea = v
-}
-
-// GetPlantationName returns the PlantationName field value
-func (o *Bean) GetPlantationName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.PlantationName
-}
-
-// GetPlantationNameOk returns a tuple with the PlantationName field value
-// and a boolean to check if the value has been set.
-func (o *Bean) GetPlantationNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PlantationName, true
-}
-
-// SetPlantationName sets field value
-func (o *Bean) SetPlantationName(v string) {
-	o.PlantationName = v
 }
 
 // GetKind returns the Kind field value
@@ -235,7 +209,6 @@ func (o Bean) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["beanId"] = o.BeanId
 	toSerialize["productionArea"] = o.ProductionArea
-	toSerialize["plantationName"] = o.PlantationName
 	toSerialize["kind"] = o.Kind
 	toSerialize["roastLevel"] = o.RoastLevel
 	toSerialize["price"] = o.Price.Get()

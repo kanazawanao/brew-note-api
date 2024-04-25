@@ -20,7 +20,7 @@ func GetUsers() []models.User {
 
 func PostUser(user models.User) {
 	result := database.Handler.Create(&user)
-	
+
 	if err := result.Error; err != nil {
 		panic(err.Error())
 	}
@@ -32,6 +32,6 @@ func GetUser(id string) models.User {
 	if err := result.Error; err != nil {
 		panic(err.Error())
 	}
-	
+
 	return user
 }

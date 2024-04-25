@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **BeanId** | **string** |  | 
 **ProductionArea** | **string** |  | 
-**PlantationName** | **string** |  | 
 **Kind** | **string** |  | 
 **RoastLevel** | **string** |  | 
 **Price** | **NullableFloat64** |  | 
@@ -16,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewBean
 
-`func NewBean(id string, beanId string, productionArea string, plantationName string, kind string, roastLevel string, price NullableFloat64, ) *Bean`
+`func NewBean(id string, beanId string, productionArea string, kind string, roastLevel string, price NullableFloat64, ) *Bean`
 
 NewBean instantiates a new Bean object
 This constructor will assign default values to properties that have it defined,
@@ -89,26 +88,6 @@ and a boolean to check if the value has been set.
 `func (o *Bean) SetProductionArea(v string)`
 
 SetProductionArea sets ProductionArea field to given value.
-
-
-### GetPlantationName
-
-`func (o *Bean) GetPlantationName() string`
-
-GetPlantationName returns the PlantationName field if non-nil, zero value otherwise.
-
-### GetPlantationNameOk
-
-`func (o *Bean) GetPlantationNameOk() (*string, bool)`
-
-GetPlantationNameOk returns a tuple with the PlantationName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPlantationName
-
-`func (o *Bean) SetPlantationName(v string)`
-
-SetPlantationName sets PlantationName field to given value.
 
 
 ### GetKind
