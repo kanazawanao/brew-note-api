@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"coffee-paws/src/models"
-	"coffee-paws/src/services"
+	"brew-note/src/models"
+	"brew-note/src/services"
 	"net/http"
 
 	"github.com/labstack/echo/v4"

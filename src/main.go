@@ -1,9 +1,9 @@
 package main
 
 import (
-	"coffee-paws/src/config"
-	"coffee-paws/src/database"
-	"coffee-paws/src/router"
+	"brew-note/src/config"
+	"brew-note/src/database"
+	"brew-note/src/router"
 )
 
 func main() {

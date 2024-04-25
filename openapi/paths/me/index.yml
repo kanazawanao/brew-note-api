@@ -3,9 +3,9 @@ get:
   description: ログイン中のUser情報を返します
   operationId: getProfile
   security:
-    - Coffee-Paws-Auth-Token: []
+    - Brew-Note-Auth-Token: []
   tags:
-    - coffee-paws
+    - brew-ntoe
   responses:
     200:
       description: ok

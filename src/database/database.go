@@ -1,7 +1,7 @@
 package database
 
 import (
-	"coffee-paws/src/config"
+	"brew-note/src/config"
 	"fmt"
 
 	"gorm.io/driver/mysql"

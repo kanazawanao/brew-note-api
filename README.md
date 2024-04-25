@@ -1,4 +1,4 @@
-# coffee-paws-api
+# brew-note-api
 
 ```bash
 wsl

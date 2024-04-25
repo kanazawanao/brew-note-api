@@ -1,7 +1,7 @@
 package database
 
 import (
-	"coffee-paws/src/config"
+	"brew-note/src/config"
 
 	mysqldriver "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"

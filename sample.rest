@@ -1,27 +1,7 @@
-GET http://localhost:1323/coffee-paws/stores
+GET http://localhost:1323/beans
 
 ###
-
-POST http://localhost:1323/coffee-paws/stores
-content-type: application/json
-
-{
-    "name": "name",
-    "storeType": "store",
-    "address": "address",
-    "url": "url"
-}
-
-###
-
-GET http://localhost:1323/coffee-paws/stores/01H8HCE5KEGE47AMPW96C196FV
-
-###
-
-GET http://localhost:1323/coffee-paws/stores/01H8HCE5KEGE47AMPW96C196FV/beans
-
-###
-POST http://localhost:1323/coffee-paws/stores/01H8HCE5KEGE47AMPW96C196FV/beans
+POST http://localhost:1323/beans
 content-type: application/json
 
 {

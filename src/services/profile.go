@@ -1,8 +1,8 @@
 package services
 
 import (
-	"coffee-paws/src/database"
-	"coffee-paws/src/models"
+	"brew-note/src/database"
+	"brew-note/src/models"
 	"log"
 )
 

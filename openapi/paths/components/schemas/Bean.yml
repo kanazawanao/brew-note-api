@@ -3,7 +3,7 @@ components:
     Bean:
       required:
         - id
-        - storeId
+        - beanId
         - productionArea
         - plantationName
         - kind
@@ -12,7 +12,7 @@ components:
       properties:
         id:
           type: string
-        storeId:
+        beanId:
           type: string
         productionArea:
           type: string

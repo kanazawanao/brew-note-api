@@ -1,4 +1,4 @@
 .env
 app/*
 tmp/*
-coffee_paws.logfile
+brew_note.logfile

@@ -8,7 +8,7 @@ import (
 
 type Bean struct {
 	ID             string         `json:"id"`
-	StoreId        string         `json:"storeId"`
+	UserId        string          `json:"userId"`
 	ProductionArea string         `json:"productionArea"`
 	PlantationName string         `json:"plantationName"`
 	Kind           string         `json:"kind"`

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"coffee-paws/src/utils"
+	"brew-note/src/utils"
 	"os"
 	"strconv"
 )

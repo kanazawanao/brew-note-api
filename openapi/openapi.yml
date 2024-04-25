@@ -1,24 +1,14 @@
 openapi: 3.0.0
 info:
   version: 0.0.1
-  title: coffee-paws api
+  title: brew-note api
 tags:
-  - name: coffee-paws
-    description: Coffee Paws 関連のAPI
+  - name: brew-note
+    description: Brew Note 関連のAPI
 paths:
-  /coffee-paws/me:
+  /me:
     $ref: ./paths/me/index.yml
-  /coffee-paws/places/nearby:
-    $ref: ./paths/places/nearby.yml
-  /coffee-paws/places/types:
-    $ref: ./paths/places/types.yml
-  /coffee-paws/users:
+  /users:
     $ref: ./paths/users/index.yml
-  /coffee-paws/users/{id}:
-    $ref: ./paths/users/id.yml
-  /coffee-paws/stores:
-    $ref: ./paths/stores/index.yml
-  /coffee-paws/stores/{id}:
-    $ref: ./paths/stores/id/index.yml
-  /coffee-paws/stores/{id}/beans:
-    $ref: ./paths/stores/id/beans/index.yml
+  /beans:
+    $ref: ./paths/beans/index.yml
