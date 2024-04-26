@@ -1,10 +1,12 @@
 # brew-note-api
 
-Windows 環境ではそのまま docker 立ち上げても air のホットリロードが聞かないので、wsl 上から実行する
+```sh
+cp .env.defaults .env
+```
 
-```bash
-wsl
-docker compose up
+```sh
+docker compose stop
+docker compose up -d
 ```
 
 リビルド
@@ -20,7 +22,7 @@ go fmt ./...
 ```
 
 docker logs --tail 100 -f brew-note-api
-docker-compose restart webserver
+docker compose restart brew-note-api
 
 ## 滅びの呪文
 

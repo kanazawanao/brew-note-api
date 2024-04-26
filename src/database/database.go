@@ -21,6 +21,7 @@ var Handler SQLHandler
 
 // NewSQLHandler is connect to database
 func NewSQLHandler() {
+	fmt.Print("NewSQLHandler")
 	db := gormConnect()
 	DB, err := db.DB()
 	if err != nil {
@@ -46,7 +47,9 @@ func NewSQLHandler() {
 }
 
 func gormConnect() *gorm.DB {
+	fmt.Print("gormConnect")
 	connStr := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", config.DB.User, config.DB.Password, config.DB.Host, config.DB.Port, config.DB.Name)
+	fmt.Print(connStr)
 	db, err := gorm.Open(mysql.Open(connStr), &gorm.Config{})
 
 	if err != nil {

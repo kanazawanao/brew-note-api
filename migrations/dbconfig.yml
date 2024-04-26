@@ -11,3 +11,10 @@ raspberry:
   dir: sql
   datasource: migration:migration@tcp(host.docker.internal:3306)/brew_note?parseTime=true
   table: migrations
+
+# local コンテナ -> RaspberryDBへのmigration
+local-raspberry:
+  dialect: mysql
+  dir: sql
+  datasource: migration:migration@tcp(192.168.11.16:3306)/brew_note?parseTime=true
+  table: migrations
