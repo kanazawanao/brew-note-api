@@ -26,7 +26,7 @@ func GetBeans() []models.Bean {
 	return beans
 }
 
-func GetBean(id string) models.Bean {
+func GetBean(id int) models.Bean {
 	var bean = models.Bean{ID: id}
 	result := database.Handler.First(&bean)
 	if err := result.Error; err != nil {

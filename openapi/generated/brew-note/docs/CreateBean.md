@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProductionArea** | **string** |  | 
 **Kind** | **string** |  | 
-**RoastLevel** | **string** |  | 
+**RoastId** | **int32** |  | 
 
 ## Methods
 
 ### NewCreateBean
 
-`func NewCreateBean(productionArea string, kind string, roastLevel string, ) *CreateBean`
+`func NewCreateBean(productionArea string, kind string, roastId int32, ) *CreateBean`
 
 NewCreateBean instantiates a new CreateBean object
 This constructor will assign default values to properties that have it defined,
@@ -67,24 +67,24 @@ and a boolean to check if the value has been set.
 SetKind sets Kind field to given value.
 
 
-### GetRoastLevel
+### GetRoastId
 
-`func (o *CreateBean) GetRoastLevel() string`
+`func (o *CreateBean) GetRoastId() int32`
 
-GetRoastLevel returns the RoastLevel field if non-nil, zero value otherwise.
+GetRoastId returns the RoastId field if non-nil, zero value otherwise.
 
-### GetRoastLevelOk
+### GetRoastIdOk
 
-`func (o *CreateBean) GetRoastLevelOk() (*string, bool)`
+`func (o *CreateBean) GetRoastIdOk() (*int32, bool)`
 
-GetRoastLevelOk returns a tuple with the RoastLevel field if it's non-nil, zero value otherwise
+GetRoastIdOk returns a tuple with the RoastId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRoastLevel
+### SetRoastId
 
-`func (o *CreateBean) SetRoastLevel(v string)`
+`func (o *CreateBean) SetRoastId(v int32)`
 
-SetRoastLevel sets RoastLevel field to given value.
+SetRoastId sets RoastId field to given value.
 
 
 

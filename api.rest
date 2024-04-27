@@ -11,5 +11,5 @@ content-type: application/json
 {
     "productionArea": "エチオピア",
     "kind": "品種",
-    "roastLevel": "浅煎り"
+    "roastId": 1
 }

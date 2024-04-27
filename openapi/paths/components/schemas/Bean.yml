@@ -6,7 +6,7 @@ components:
         - beanId
         - productionArea
         - kind
-        - roastLevel
+        - roastId
         - price
       properties:
         id:
@@ -17,8 +17,8 @@ components:
           type: string
         kind:
           type: string
-        roastLevel:
-          type: string
+        roastId:
+          type: integer
         price:
           type: number
           nullable: true
@@ -28,11 +28,11 @@ components:
       required:
         - productionArea
         - kind
-        - roastLevel
+        - roastId
       properties:
         productionArea:
           type: string
         kind:
           type: string
-        roastLevel:
-          type: string
+        roastId:
+          type: integer

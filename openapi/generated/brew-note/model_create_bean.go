@@ -21,18 +21,18 @@ var _ MappedNullable = &CreateBean{}
 type CreateBean struct {
 	ProductionArea string `json:"productionArea"`
 	Kind string `json:"kind"`
-	RoastLevel string `json:"roastLevel"`
+	RoastId int32 `json:"roastId"`
 }
 
 // NewCreateBean instantiates a new CreateBean object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateBean(productionArea string, kind string, roastLevel string) *CreateBean {
+func NewCreateBean(productionArea string, kind string, roastId int32) *CreateBean {
 	this := CreateBean{}
 	this.ProductionArea = productionArea
 	this.Kind = kind
-	this.RoastLevel = roastLevel
+	this.RoastId = roastId
 	return &this
 }
 
@@ -92,28 +92,28 @@ func (o *CreateBean) SetKind(v string) {
 	o.Kind = v
 }
 
-// GetRoastLevel returns the RoastLevel field value
-func (o *CreateBean) GetRoastLevel() string {
+// GetRoastId returns the RoastId field value
+func (o *CreateBean) GetRoastId() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
-	return o.RoastLevel
+	return o.RoastId
 }
 
-// GetRoastLevelOk returns a tuple with the RoastLevel field value
+// GetRoastIdOk returns a tuple with the RoastId field value
 // and a boolean to check if the value has been set.
-func (o *CreateBean) GetRoastLevelOk() (*string, bool) {
+func (o *CreateBean) GetRoastIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.RoastLevel, true
+	return &o.RoastId, true
 }
 
-// SetRoastLevel sets field value
-func (o *CreateBean) SetRoastLevel(v string) {
-	o.RoastLevel = v
+// SetRoastId sets field value
+func (o *CreateBean) SetRoastId(v int32) {
+	o.RoastId = v
 }
 
 func (o CreateBean) MarshalJSON() ([]byte, error) {
@@ -128,7 +128,7 @@ func (o CreateBean) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["productionArea"] = o.ProductionArea
 	toSerialize["kind"] = o.Kind
-	toSerialize["roastLevel"] = o.RoastLevel
+	toSerialize["roastId"] = o.RoastId
 	return toSerialize, nil
 }
 

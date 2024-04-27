@@ -3,10 +3,10 @@ package handler
 import (
 	"brew-note/src/models"
 	"brew-note/src/services"
-	"brew-note/src/utils"
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	openapi "github.com/brew-note/api"
 
@@ -21,13 +21,13 @@ func PostBean(c echo.Context) error {
 		return c.String(http.StatusBadRequest, "bad request")
 	}
 	fmt.Print(s)
-	id := utils.GenerateULID()
 	bean := models.Bean{
-		ID:             id,
 		UserId:         "",
 		ProductionArea: s.ProductionArea,
 		Kind:           s.Kind,
-		RoastLevel:     s.RoastLevel,
+		RoastId:        s.RoastId,
+		Price:          0,
+		Gram:           0,
 	}
 
 	res := services.PostBean(bean)
@@ -45,7 +45,8 @@ func GetBeans(c echo.Context) error {
 // e.Get("/beans/:beanId", GetBean)
 func GetBean(c echo.Context) error {
 	beanId := c.Param("beanId")
-	bean := services.GetBean(beanId)
+	id, _ := strconv.Atoi(beanId)
+	bean := services.GetBean(id)
 
 	return c.JSON(http.StatusOK, bean)
 }

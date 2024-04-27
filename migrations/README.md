@@ -35,15 +35,12 @@ sudo docker run --rm -v .:/migrations -it --add-host host.docker.internal:host-g
 ## ローカルからラズパイ DB へ migration(ラズパイのローカルに DB サーバー立ち上げた場合)
 
 ```sh
-# imageの作成
-docker build -t migrations .
-
 # 差分の確認
-docker run --rm -v .:/migrations -it migrations sql-migrate status -config="dbconfig.yml" -env="local-raspberry"
+docker compose exec migrations sql-migrate status -config="dbconfig.yml" -env="local-raspberry"
 
 # 差分の反映
-docker run --rm -v .:/migrations -it migrations sql-migrate up -config="dbconfig.yml" -env="local-raspberry"
+docker compose exec migrations sql-migrate up -config="dbconfig.yml" -env="local-raspberry"
 
 # 差分の戻し
-docker run --rm -v .:/migrations -it migrations sql-migrate down -config="dbconfig.yml" -env="local-raspberry"
+docker compose exec migrations sql-migrate down -config="dbconfig.yml" -env="local-raspberry"
 ```

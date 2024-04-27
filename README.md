@@ -21,8 +21,10 @@ docker-compose build --no-cache api
 go fmt ./...
 ```
 
+```sh
 docker logs --tail 100 -f brew-note-api
-docker compose restart brew-note-api
+docker compose restart api
+```
 
 ## 滅びの呪文
 
