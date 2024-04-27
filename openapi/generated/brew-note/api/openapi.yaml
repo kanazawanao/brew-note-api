@@ -87,6 +87,24 @@ paths:
       summary: Create Bean
       tags:
       - brew-note
+  /roast-levels:
+    get:
+      description: roast level一覧を取得します。
+      operationId: getRoastLevels
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RoastLevel'
+                type: array
+          description: ok
+        "500":
+          description: Internal Server Error
+      summary: Get Roast Levels
+      tags:
+      - brew-note
 components:
   schemas:
     User:
@@ -106,13 +124,10 @@ components:
           type: string
     Bean:
       example:
-        roastLevel:
-          level: 6.027456183070403
-          name: name
-          id: 0.8008281904610115
         productionArea: productionArea
         kind: kind
-        price: 1.4658129805029452
+        price: 6.027456183070403
+        roastLevelId: 0.8008281904610115
         id: id
         beanId: beanId
       properties:
@@ -124,8 +139,8 @@ components:
           type: string
         kind:
           type: string
-        roastLevel:
-          $ref: '#/components/schemas/RoastLevel'
+        roastLevelId:
+          type: number
         price:
           format: double
           nullable: true
@@ -136,20 +151,20 @@ components:
       - kind
       - price
       - productionArea
-      - roastId
+      - roastLevelId
     CreateBean:
       example:
         productionArea: productionArea
         kind: kind
         price: 6
         gram: 1
-        roastId: 0
+        roastLevelId: 0
       properties:
         productionArea:
           type: string
         kind:
           type: string
-        roastId:
+        roastLevelId:
           type: integer
         price:
           type: integer
@@ -158,7 +173,7 @@ components:
       required:
       - kind
       - productionArea
-      - roastId
+      - roastLevelId
       type: object
     RoastLevel:
       example:

@@ -19,7 +19,7 @@ func PostBean(c echo.Context) error {
 		log.Printf("err %v", err.Error())
 		return c.String(http.StatusBadRequest, "bad request")
 	}
-	
+
 	token := c.Request().Header.Get("Authorization")
 	claim, err := services.CheckFirebaseJWT(token)
 	if err != nil {
@@ -29,7 +29,7 @@ func PostBean(c echo.Context) error {
 		UserId:         claim.Id,
 		ProductionArea: s.ProductionArea,
 		Kind:           s.Kind,
-		RoastId:        s.RoastId,
+		RoastLevelId:   s.RoastLevelId,
 		Price:          0,
 		Gram:           0,
 	}

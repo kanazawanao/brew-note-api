@@ -21,7 +21,7 @@ var _ MappedNullable = &CreateBean{}
 type CreateBean struct {
 	ProductionArea string `json:"productionArea"`
 	Kind string `json:"kind"`
-	RoastId int32 `json:"roastId"`
+	RoastLevelId int32 `json:"roastLevelId"`
 	Price *int32 `json:"price,omitempty"`
 	Gram *int32 `json:"gram,omitempty"`
 }
@@ -30,11 +30,11 @@ type CreateBean struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateBean(productionArea string, kind string, roastId int32) *CreateBean {
+func NewCreateBean(productionArea string, kind string, roastLevelId int32) *CreateBean {
 	this := CreateBean{}
 	this.ProductionArea = productionArea
 	this.Kind = kind
-	this.RoastId = roastId
+	this.RoastLevelId = roastLevelId
 	return &this
 }
 
@@ -94,28 +94,28 @@ func (o *CreateBean) SetKind(v string) {
 	o.Kind = v
 }
 
-// GetRoastId returns the RoastId field value
-func (o *CreateBean) GetRoastId() int32 {
+// GetRoastLevelId returns the RoastLevelId field value
+func (o *CreateBean) GetRoastLevelId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.RoastId
+	return o.RoastLevelId
 }
 
-// GetRoastIdOk returns a tuple with the RoastId field value
+// GetRoastLevelIdOk returns a tuple with the RoastLevelId field value
 // and a boolean to check if the value has been set.
-func (o *CreateBean) GetRoastIdOk() (*int32, bool) {
+func (o *CreateBean) GetRoastLevelIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.RoastId, true
+	return &o.RoastLevelId, true
 }
 
-// SetRoastId sets field value
-func (o *CreateBean) SetRoastId(v int32) {
-	o.RoastId = v
+// SetRoastLevelId sets field value
+func (o *CreateBean) SetRoastLevelId(v int32) {
+	o.RoastLevelId = v
 }
 
 // GetPrice returns the Price field value if set, zero value otherwise.
@@ -194,7 +194,7 @@ func (o CreateBean) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["productionArea"] = o.ProductionArea
 	toSerialize["kind"] = o.Kind
-	toSerialize["roastId"] = o.RoastId
+	toSerialize["roastLevelId"] = o.RoastLevelId
 	if !IsNil(o.Price) {
 		toSerialize["price"] = o.Price
 	}

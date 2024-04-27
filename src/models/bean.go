@@ -11,7 +11,7 @@ type Bean struct {
 	UserId         string         `json:"userId"`
 	ProductionArea string         `json:"productionArea"`
 	Kind           string         `json:"kind"`
-	RoastId        int32          `json:"roastId"`
+	RoastLevelId   int32          `json:"roastLevelId"`
 	Price          int            `json:"price"`
 	Gram           int            `json:"gram"`
 	CreatedAt      *time.Time     `json:"createdAt"`

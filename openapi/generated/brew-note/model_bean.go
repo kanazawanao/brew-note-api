@@ -23,7 +23,7 @@ type Bean struct {
 	BeanId string `json:"beanId"`
 	ProductionArea string `json:"productionArea"`
 	Kind string `json:"kind"`
-	RoastLevel *RoastLevel `json:"roastLevel,omitempty"`
+	RoastLevelId float32 `json:"roastLevelId"`
 	Price NullableFloat64 `json:"price"`
 }
 
@@ -31,12 +31,13 @@ type Bean struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBean(id string, beanId string, productionArea string, kind string, price NullableFloat64) *Bean {
+func NewBean(id string, beanId string, productionArea string, kind string, roastLevelId float32, price NullableFloat64) *Bean {
 	this := Bean{}
 	this.Id = id
 	this.BeanId = beanId
 	this.ProductionArea = productionArea
 	this.Kind = kind
+	this.RoastLevelId = roastLevelId
 	this.Price = price
 	return &this
 }
@@ -145,36 +146,28 @@ func (o *Bean) SetKind(v string) {
 	o.Kind = v
 }
 
-// GetRoastLevel returns the RoastLevel field value if set, zero value otherwise.
-func (o *Bean) GetRoastLevel() RoastLevel {
-	if o == nil || IsNil(o.RoastLevel) {
-		var ret RoastLevel
+// GetRoastLevelId returns the RoastLevelId field value
+func (o *Bean) GetRoastLevelId() float32 {
+	if o == nil {
+		var ret float32
 		return ret
 	}
-	return *o.RoastLevel
+
+	return o.RoastLevelId
 }
 
-// GetRoastLevelOk returns a tuple with the RoastLevel field value if set, nil otherwise
+// GetRoastLevelIdOk returns a tuple with the RoastLevelId field value
 // and a boolean to check if the value has been set.
-func (o *Bean) GetRoastLevelOk() (*RoastLevel, bool) {
-	if o == nil || IsNil(o.RoastLevel) {
+func (o *Bean) GetRoastLevelIdOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RoastLevel, true
+	return &o.RoastLevelId, true
 }
 
-// HasRoastLevel returns a boolean if a field has been set.
-func (o *Bean) HasRoastLevel() bool {
-	if o != nil && !IsNil(o.RoastLevel) {
-		return true
-	}
-
-	return false
-}
-
-// SetRoastLevel gets a reference to the given RoastLevel and assigns it to the RoastLevel field.
-func (o *Bean) SetRoastLevel(v RoastLevel) {
-	o.RoastLevel = &v
+// SetRoastLevelId sets field value
+func (o *Bean) SetRoastLevelId(v float32) {
+	o.RoastLevelId = v
 }
 
 // GetPrice returns the Price field value
@@ -217,9 +210,7 @@ func (o Bean) ToMap() (map[string]interface{}, error) {
 	toSerialize["beanId"] = o.BeanId
 	toSerialize["productionArea"] = o.ProductionArea
 	toSerialize["kind"] = o.Kind
-	if !IsNil(o.RoastLevel) {
-		toSerialize["roastLevel"] = o.RoastLevel
-	}
+	toSerialize["roastLevelId"] = o.RoastLevelId
 	toSerialize["price"] = o.Price.Get()
 	return toSerialize, nil
 }

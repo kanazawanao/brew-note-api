@@ -6,7 +6,7 @@ components:
         - beanId
         - productionArea
         - kind
-        - roastId
+        - roastLevelId
         - price
       properties:
         id:
@@ -17,8 +17,8 @@ components:
           type: string
         kind:
           type: string
-        roastLevel:
-          $ref: "./RoastLevel.yml#/components/schemas/RoastLevel"
+        roastLevelId:
+          type: number
         price:
           type: number
           nullable: true
@@ -28,13 +28,13 @@ components:
       required:
         - productionArea
         - kind
-        - roastId
+        - roastLevelId
       properties:
         productionArea:
           type: string
         kind:
           type: string
-        roastId:
+        roastLevelId:
           type: integer
         price:
           type: integer

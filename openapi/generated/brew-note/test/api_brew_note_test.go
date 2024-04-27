@@ -46,4 +46,16 @@ func Test_openapi_BrewNoteApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test BrewNoteApiService GetRoastLevels", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.BrewNoteApi.GetRoastLevels(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }
