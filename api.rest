@@ -13,3 +13,6 @@ content-type: application/json
     "kind": "品種",
     "roastId": 1
 }
+
+###
+GET http://localhost:1323/roast-levels

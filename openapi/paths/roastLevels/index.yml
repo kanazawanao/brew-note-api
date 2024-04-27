@@ -1,0 +1,17 @@
+get:
+  summary: Get Roast Levels
+  description: roast level一覧を取得します。
+  operationId: getRoastLevels
+  tags:
+    - brew-note
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/RoastLevel.yml#/components/schemas/RoastLevel"
+    500:
+      description: Internal Server Error
