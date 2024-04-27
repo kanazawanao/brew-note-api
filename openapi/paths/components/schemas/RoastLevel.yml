@@ -1,0 +1,14 @@
+components:
+  schemas:
+    RoastLevel:
+      required:
+        - id
+        - level
+        - name
+      properties:
+        id:
+          type: number
+        level:
+          type: number
+        name:
+          type: string

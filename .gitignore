@@ -2,3 +2,4 @@
 app/*
 tmp/*
 brew_note.logfile
+./openapi/generated/*

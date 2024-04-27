@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 
  - [Bean](docs/Bean.md)
  - [CreateBean](docs/CreateBean.md)
+ - [RoastLevel](docs/RoastLevel.md)
  - [User](docs/User.md)
 
 

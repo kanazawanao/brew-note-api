@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -11,14 +10,14 @@ docs/Bean.md
 docs/BrewNoteApi.md
 docs/BrewNtoeApi.md
 docs/CreateBean.md
+docs/RoastLevel.md
 docs/User.md
 git_push.sh
 go.mod
 go.sum
 model_bean.go
 model_create_bean.go
+model_roast_level.go
 model_user.go
 response.go
-test/api_brew_note_test.go
-test/api_brew_ntoe_test.go
 utils.go

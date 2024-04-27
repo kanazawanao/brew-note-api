@@ -3,7 +3,6 @@ package handler
 import (
 	"brew-note/src/models"
 	"brew-note/src/services"
-	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -20,9 +19,14 @@ func PostBean(c echo.Context) error {
 		log.Printf("err %v", err.Error())
 		return c.String(http.StatusBadRequest, "bad request")
 	}
-	fmt.Print(s)
+	
+	token := c.Request().Header.Get("Authorization")
+	claim, err := services.CheckFirebaseJWT(token)
+	if err != nil {
+		log.Fatalf("fatal error: %s", err)
+	}
 	bean := models.Bean{
-		UserId:         "",
+		UserId:         claim.Id,
 		ProductionArea: s.ProductionArea,
 		Kind:           s.Kind,
 		RoastId:        s.RoastId,
@@ -36,8 +40,8 @@ func PostBean(c echo.Context) error {
 
 // e.Get("/beans", GetBeans)
 func GetBeans(c echo.Context) error {
-	beans := services.GetBeans()
-	fmt.Print("test")
+	token := c.Request().Header.Get("Authorization")
+	beans := services.GetBeans(token)
 
 	return c.JSON(http.StatusOK, beans)
 }

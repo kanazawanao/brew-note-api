@@ -22,6 +22,8 @@ type CreateBean struct {
 	ProductionArea string `json:"productionArea"`
 	Kind string `json:"kind"`
 	RoastId int32 `json:"roastId"`
+	Price *int32 `json:"price,omitempty"`
+	Gram *int32 `json:"gram,omitempty"`
 }
 
 // NewCreateBean instantiates a new CreateBean object
@@ -116,6 +118,70 @@ func (o *CreateBean) SetRoastId(v int32) {
 	o.RoastId = v
 }
 
+// GetPrice returns the Price field value if set, zero value otherwise.
+func (o *CreateBean) GetPrice() int32 {
+	if o == nil || IsNil(o.Price) {
+		var ret int32
+		return ret
+	}
+	return *o.Price
+}
+
+// GetPriceOk returns a tuple with the Price field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateBean) GetPriceOk() (*int32, bool) {
+	if o == nil || IsNil(o.Price) {
+		return nil, false
+	}
+	return o.Price, true
+}
+
+// HasPrice returns a boolean if a field has been set.
+func (o *CreateBean) HasPrice() bool {
+	if o != nil && !IsNil(o.Price) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrice gets a reference to the given int32 and assigns it to the Price field.
+func (o *CreateBean) SetPrice(v int32) {
+	o.Price = &v
+}
+
+// GetGram returns the Gram field value if set, zero value otherwise.
+func (o *CreateBean) GetGram() int32 {
+	if o == nil || IsNil(o.Gram) {
+		var ret int32
+		return ret
+	}
+	return *o.Gram
+}
+
+// GetGramOk returns a tuple with the Gram field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateBean) GetGramOk() (*int32, bool) {
+	if o == nil || IsNil(o.Gram) {
+		return nil, false
+	}
+	return o.Gram, true
+}
+
+// HasGram returns a boolean if a field has been set.
+func (o *CreateBean) HasGram() bool {
+	if o != nil && !IsNil(o.Gram) {
+		return true
+	}
+
+	return false
+}
+
+// SetGram gets a reference to the given int32 and assigns it to the Gram field.
+func (o *CreateBean) SetGram(v int32) {
+	o.Gram = &v
+}
+
 func (o CreateBean) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -129,6 +195,12 @@ func (o CreateBean) ToMap() (map[string]interface{}, error) {
 	toSerialize["productionArea"] = o.ProductionArea
 	toSerialize["kind"] = o.Kind
 	toSerialize["roastId"] = o.RoastId
+	if !IsNil(o.Price) {
+		toSerialize["price"] = o.Price
+	}
+	if !IsNil(o.Gram) {
+		toSerialize["gram"] = o.Gram
+	}
 	return toSerialize, nil
 }
 

@@ -106,12 +106,15 @@ components:
           type: string
     Bean:
       example:
+        roastLevel:
+          level: 6.027456183070403
+          name: name
+          id: 0.8008281904610115
         productionArea: productionArea
         kind: kind
-        price: 6.027456183070403
+        price: 1.4658129805029452
         id: id
         beanId: beanId
-        roastId: 0
       properties:
         id:
           type: string
@@ -121,8 +124,8 @@ components:
           type: string
         kind:
           type: string
-        roastId:
-          type: integer
+        roastLevel:
+          $ref: '#/components/schemas/RoastLevel'
         price:
           format: double
           nullable: true
@@ -138,6 +141,8 @@ components:
       example:
         productionArea: productionArea
         kind: kind
+        price: 6
+        gram: 1
         roastId: 0
       properties:
         productionArea:
@@ -146,8 +151,28 @@ components:
           type: string
         roastId:
           type: integer
+        price:
+          type: integer
+        gram:
+          type: integer
       required:
       - kind
       - productionArea
       - roastId
       type: object
+    RoastLevel:
+      example:
+        level: 6.027456183070403
+        name: name
+        id: 0.8008281904610115
+      properties:
+        id:
+          type: number
+        level:
+          type: number
+        name:
+          type: string
+      required:
+      - id
+      - level
+      - name

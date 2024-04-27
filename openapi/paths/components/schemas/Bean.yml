@@ -17,8 +17,8 @@ components:
           type: string
         kind:
           type: string
-        roastId:
-          type: integer
+        roastLevel:
+          $ref: "./RoastLevel.yml#/components/schemas/RoastLevel"
         price:
           type: number
           nullable: true
@@ -35,4 +35,8 @@ components:
         kind:
           type: string
         roastId:
+          type: integer
+        price:
+          type: integer
+        gram:
           type: integer

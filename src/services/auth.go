@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"encoding/pem"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -30,7 +31,8 @@ type CustomClaims struct {
 	jwt.StandardClaims
 }
 
-func checkFirebaseJWT(tokenString string) (CustomClaims, error) {
+func CheckFirebaseJWT(tokenString string) (CustomClaims, error) {
+	fmt.Println("checkFirebaseJWT:", tokenString)
 	resp, err := http.Get("https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com")
 	if err != nil {
 		log.Fatalf("Failed to make a request: %v", err)

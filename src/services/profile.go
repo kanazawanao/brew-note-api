@@ -7,7 +7,7 @@ import (
 )
 
 func GetProfile(token string) models.User {
-	claim, err := checkFirebaseJWT(token)
+	claim, err := CheckFirebaseJWT(token)
 	if err != nil {
 		log.Fatalf("fatal error: %s", err)
 	}

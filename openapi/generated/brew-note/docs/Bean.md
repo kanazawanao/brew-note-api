@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **BeanId** | **string** |  | 
 **ProductionArea** | **string** |  | 
 **Kind** | **string** |  | 
-**RoastId** | **int32** |  | 
+**RoastLevel** | Pointer to [**RoastLevel**](RoastLevel.md) |  | [optional] 
 **Price** | **NullableFloat64** |  | 
 
 ## Methods
 
 ### NewBean
 
-`func NewBean(id string, beanId string, productionArea string, kind string, roastId int32, price NullableFloat64, ) *Bean`
+`func NewBean(id string, beanId string, productionArea string, kind string, price NullableFloat64, ) *Bean`
 
 NewBean instantiates a new Bean object
 This constructor will assign default values to properties that have it defined,
@@ -110,25 +110,30 @@ and a boolean to check if the value has been set.
 SetKind sets Kind field to given value.
 
 
-### GetRoastId
+### GetRoastLevel
 
-`func (o *Bean) GetRoastId() int32`
+`func (o *Bean) GetRoastLevel() RoastLevel`
 
-GetRoastId returns the RoastId field if non-nil, zero value otherwise.
+GetRoastLevel returns the RoastLevel field if non-nil, zero value otherwise.
 
-### GetRoastIdOk
+### GetRoastLevelOk
 
-`func (o *Bean) GetRoastIdOk() (*int32, bool)`
+`func (o *Bean) GetRoastLevelOk() (*RoastLevel, bool)`
 
-GetRoastIdOk returns a tuple with the RoastId field if it's non-nil, zero value otherwise
+GetRoastLevelOk returns a tuple with the RoastLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRoastId
+### SetRoastLevel
 
-`func (o *Bean) SetRoastId(v int32)`
+`func (o *Bean) SetRoastLevel(v RoastLevel)`
 
-SetRoastId sets RoastId field to given value.
+SetRoastLevel sets RoastLevel field to given value.
 
+### HasRoastLevel
+
+`func (o *Bean) HasRoastLevel() bool`
+
+HasRoastLevel returns a boolean if a field has been set.
 
 ### GetPrice
 
