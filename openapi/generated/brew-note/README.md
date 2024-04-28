@@ -78,6 +78,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BrewNoteApi* | [**CreateBean**](docs/BrewNoteApi.md#createbean) | **Post** /beans | Create Bean
+*BrewNoteApi* | [**CreateRecipe**](docs/BrewNoteApi.md#createrecipe) | **Post** /recipes | Post Recipe
 *BrewNoteApi* | [**GetBeans**](docs/BrewNoteApi.md#getbeans) | **Get** /beans | Get Beans
 *BrewNoteApi* | [**GetRecipes**](docs/BrewNoteApi.md#getrecipes) | **Get** /recipes | Get Recipes
 *BrewNoteApi* | [**GetRoastLevels**](docs/BrewNoteApi.md#getroastlevels) | **Get** /roast-levels | Get Roast Levels
@@ -89,6 +90,7 @@ Class | Method | HTTP request | Description
 
  - [Bean](docs/Bean.md)
  - [CreateBean](docs/CreateBean.md)
+ - [CreateRecipe](docs/CreateRecipe.md)
  - [Recipe](docs/Recipe.md)
  - [RecipeStep](docs/RecipeStep.md)
  - [RoastLevel](docs/RoastLevel.md)

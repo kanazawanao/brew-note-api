@@ -17,3 +17,18 @@ components:
           type: array
           items:
             $ref: "./RecipeStep.yml#/components/schemas/RecipeStep"
+    CreateRecipe:
+      type: object
+      required:
+        - extractionEquipment
+        - coffeeType
+        - steps
+      properties:
+        extractionEquipment:
+          type: string
+        coffeeType:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: "./RecipeStep.yml#/components/schemas/RecipeStep"

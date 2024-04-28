@@ -132,6 +132,116 @@ func (a *BrewNoteApiService) CreateBeanExecute(r ApiCreateBeanRequest) (*Bean, *
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCreateRecipeRequest struct {
+	ctx context.Context
+	ApiService *BrewNoteApiService
+	createRecipe *CreateRecipe
+}
+
+func (r ApiCreateRecipeRequest) CreateRecipe(createRecipe CreateRecipe) ApiCreateRecipeRequest {
+	r.createRecipe = &createRecipe
+	return r
+}
+
+func (r ApiCreateRecipeRequest) Execute() (*Recipe, *http.Response, error) {
+	return r.ApiService.CreateRecipeExecute(r)
+}
+
+/*
+CreateRecipe Post Recipe
+
+レシピ情報を登録します
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateRecipeRequest
+*/
+func (a *BrewNoteApiService) CreateRecipe(ctx context.Context) ApiCreateRecipeRequest {
+	return ApiCreateRecipeRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return Recipe
+func (a *BrewNoteApiService) CreateRecipeExecute(r ApiCreateRecipeRequest) (*Recipe, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Recipe
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrewNoteApiService.CreateRecipe")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/recipes"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.createRecipe == nil {
+		return localVarReturnValue, nil, reportError("createRecipe is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createRecipe
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetBeansRequest struct {
 	ctx context.Context
 	ApiService *BrewNoteApiService

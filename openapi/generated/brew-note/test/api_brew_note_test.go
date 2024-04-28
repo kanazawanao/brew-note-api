@@ -34,6 +34,18 @@ func Test_openapi_BrewNoteApiService(t *testing.T) {
 
 	})
 
+	t.Run("Test BrewNoteApiService CreateRecipe", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.BrewNoteApi.CreateRecipe(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test BrewNoteApiService GetBeans", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

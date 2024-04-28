@@ -123,6 +123,31 @@ paths:
       summary: Get Recipes
       tags:
       - brew-note
+    post:
+      description: レシピ情報を登録します
+      operationId: createRecipe
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRecipe'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+          description: ok
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+      summary: Post Recipe
+      tags:
+      - brew-note
 components:
   schemas:
     User:
@@ -241,6 +266,35 @@ components:
       - extractionEquipment
       - id
       - steps
+    CreateRecipe:
+      example:
+        coffeeType: coffeeType
+        extractionEquipment: extractionEquipment
+        steps:
+        - seconds: 5.637376656633329
+          extractionTemperature: 5.962133916683182
+          memo: memo
+          id: 6.027456183070403
+          stepNumber: 1.4658129805029452
+        - seconds: 5.637376656633329
+          extractionTemperature: 5.962133916683182
+          memo: memo
+          id: 6.027456183070403
+          stepNumber: 1.4658129805029452
+      properties:
+        extractionEquipment:
+          type: string
+        coffeeType:
+          type: string
+        steps:
+          items:
+            $ref: '#/components/schemas/RecipeStep'
+          type: array
+      required:
+      - coffeeType
+      - extractionEquipment
+      - steps
+      type: object
     RecipeStep:
       example:
         seconds: 5.637376656633329

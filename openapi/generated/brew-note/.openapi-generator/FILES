@@ -11,6 +11,7 @@ docs/Bean.md
 docs/BrewNoteApi.md
 docs/BrewNtoeApi.md
 docs/CreateBean.md
+docs/CreateRecipe.md
 docs/Recipe.md
 docs/RecipeStep.md
 docs/RoastLevel.md
@@ -20,6 +21,7 @@ go.mod
 go.sum
 model_bean.go
 model_create_bean.go
+model_create_recipe.go
 model_recipe.go
 model_recipe_step.go
 model_roast_level.go
