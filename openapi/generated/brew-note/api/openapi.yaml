@@ -105,6 +105,24 @@ paths:
       summary: Get Roast Levels
       tags:
       - brew-note
+  /recipes:
+    get:
+      description: レシピ一覧を取得します
+      operationId: getRecipes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Recipe'
+                type: array
+          description: ok
+        "500":
+          description: Internal Server Error
+      summary: Get Recipes
+      tags:
+      - brew-note
 components:
   schemas:
     User:
@@ -191,3 +209,59 @@ components:
       - id
       - level
       - name
+    Recipe:
+      example:
+        coffeeType: coffeeType
+        extractionEquipment: extractionEquipment
+        id: 0.8008281904610115
+        steps:
+        - seconds: 5.637376656633329
+          extractionTemperature: 5.962133916683182
+          memo: memo
+          id: 6.027456183070403
+          stepNumber: 1.4658129805029452
+        - seconds: 5.637376656633329
+          extractionTemperature: 5.962133916683182
+          memo: memo
+          id: 6.027456183070403
+          stepNumber: 1.4658129805029452
+      properties:
+        id:
+          type: number
+        extractionEquipment:
+          type: string
+        coffeeType:
+          type: string
+        steps:
+          items:
+            $ref: '#/components/schemas/RecipeStep'
+          type: array
+      required:
+      - coffeeType
+      - extractionEquipment
+      - id
+      - steps
+    RecipeStep:
+      example:
+        seconds: 5.637376656633329
+        extractionTemperature: 5.962133916683182
+        memo: memo
+        id: 6.027456183070403
+        stepNumber: 1.4658129805029452
+      properties:
+        id:
+          type: number
+        stepNumber:
+          type: number
+        memo:
+          type: string
+        extractionTemperature:
+          type: number
+        seconds:
+          type: number
+      required:
+      - extractionTemperature
+      - id
+      - memo
+      - seconds
+      - stepNumber

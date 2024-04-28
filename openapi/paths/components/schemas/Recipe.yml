@@ -1,0 +1,19 @@
+components:
+  schemas:
+    Recipe:
+      required:
+        - id
+        - extractionEquipment
+        - coffeeType
+        - steps
+      properties:
+        id:
+          type: number
+        extractionEquipment:
+          type: string
+        coffeeType:
+          type: string
+        steps:
+          type: array
+          items:
+            $ref: "./RecipeStep.yml#/components/schemas/RecipeStep"

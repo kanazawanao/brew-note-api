@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BrewNoteApi* | [**CreateBean**](docs/BrewNoteApi.md#createbean) | **Post** /beans | Create Bean
 *BrewNoteApi* | [**GetBeans**](docs/BrewNoteApi.md#getbeans) | **Get** /beans | Get Beans
+*BrewNoteApi* | [**GetRecipes**](docs/BrewNoteApi.md#getrecipes) | **Get** /recipes | Get Recipes
 *BrewNoteApi* | [**GetRoastLevels**](docs/BrewNoteApi.md#getroastlevels) | **Get** /roast-levels | Get Roast Levels
 *BrewNtoeApi* | [**GetProfile**](docs/BrewNtoeApi.md#getprofile) | **Get** /me | Get Profile
 *BrewNtoeApi* | [**GetUsers**](docs/BrewNtoeApi.md#getusers) | **Get** /users | Get Users
@@ -88,6 +89,8 @@ Class | Method | HTTP request | Description
 
  - [Bean](docs/Bean.md)
  - [CreateBean](docs/CreateBean.md)
+ - [Recipe](docs/Recipe.md)
+ - [RecipeStep](docs/RecipeStep.md)
  - [RoastLevel](docs/RoastLevel.md)
  - [User](docs/User.md)
 

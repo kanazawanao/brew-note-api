@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateBean**](BrewNoteApi.md#CreateBean) | **Post** /beans | Create Bean
 [**GetBeans**](BrewNoteApi.md#GetBeans) | **Get** /beans | Get Beans
+[**GetRecipes**](BrewNoteApi.md#GetRecipes) | **Get** /recipes | Get Recipes
 [**GetRoastLevels**](BrewNoteApi.md#GetRoastLevels) | **Get** /roast-levels | Get Roast Levels
 
 
@@ -122,6 +123,67 @@ Other parameters are passed through a pointer to a apiGetBeansRequest struct via
 ### Return type
 
 [**[]Bean**](Bean.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetRecipes
+
+> []Recipe GetRecipes(ctx).Execute()
+
+Get Recipes
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/brew-note/api"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.BrewNoteApi.GetRecipes(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `BrewNoteApi.GetRecipes``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRecipes`: []Recipe
+    fmt.Fprintf(os.Stdout, "Response from `BrewNoteApi.GetRecipes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetRecipesRequest struct via the builder pattern
+
+
+### Return type
+
+[**[]Recipe**](Recipe.md)
 
 ### Authorization
 

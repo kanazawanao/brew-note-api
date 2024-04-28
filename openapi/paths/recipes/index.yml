@@ -1,0 +1,17 @@
+get:
+  summary: Get Recipes
+  description: レシピ一覧を取得します
+  operationId: getRecipes
+  tags:
+    - brew-note
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Recipe.yml#/components/schemas/Recipe"
+    500:
+      description: Internal Server Error

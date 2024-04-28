@@ -14,3 +14,5 @@ paths:
     $ref: ./paths/beans/index.yml
   /roast-levels:
     $ref: ./paths/roastLevels/index.yml
+  /recipes:
+    $ref: ./paths/recipes/index.yml

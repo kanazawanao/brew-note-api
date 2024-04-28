@@ -1,0 +1,20 @@
+components:
+  schemas:
+    RecipeStep:
+      required:
+        - id
+        - stepNumber
+        - memo
+        - extractionTemperature
+        - seconds
+      properties:
+        id:
+          type: number
+        stepNumber:
+          type: number
+        memo:
+          type: string
+        extractionTemperature:
+          type: number
+        seconds:
+          type: number
