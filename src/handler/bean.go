@@ -26,7 +26,7 @@ func PostBean(c echo.Context) error {
 		log.Fatalf("fatal error: %s", err)
 	}
 	bean := models.Bean{
-		UserId:         claim.Id,
+		UserId:         claim.UserId,
 		ProductionArea: s.ProductionArea,
 		Kind:           s.Kind,
 		RoastLevelId:   s.RoastLevelId,
@@ -41,7 +41,11 @@ func PostBean(c echo.Context) error {
 // e.Get("/beans", GetBeans)
 func GetBeans(c echo.Context) error {
 	token := c.Request().Header.Get("Authorization")
-	beans := services.GetBeans(token)
+	claim, err := services.CheckFirebaseJWT(token)
+	if err != nil {
+		log.Fatalf("fatal error: %s", err)
+	}
+	beans := services.GetBeans(claim.UserId)
 
 	return c.JSON(http.StatusOK, beans)
 }
