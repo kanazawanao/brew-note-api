@@ -5,23 +5,13 @@ CREATE TABLE IF NOT EXISTS `roast_levels` (
   `name` VARCHAR(255) NOT NULL COMMENT '名前'
 ) ENGINE=InnoDB COMMENT='roast level table';
 
-INSERT IGNORE INTO `roast_levels` (`id`, `level`, `name`) VALUES
-(1, 1,'Light'),
-(2, 2,'Cinnamon'),
-(3, 3,'Medium'),
-(4, 4,'Hight'),
-(5, 5,'City'),
-(6, 6,'Full City'),
-(7, 7,'French'),
-(8, 8,'Italian');
-
 INSERT INTO `roast_levels`(`level`, `name`) VALUES
 ('1','Light roast'),
-('2', 'Chinamon roast'),
+('2', 'Cinnamon roast'),
 ('3', 'Medium roast'),
 ('4', 'High roast'),
 ('5', 'City roast'),
-('6', 'FUllcity roast'),
+('6', 'FUll City roast'),
 ('7', 'French roast'),
 ('8', 'Italian roast');
 
@@ -41,13 +31,13 @@ INSERT INTO `processings`(`method`, `description`) VALUES
 CREATE TABLE IF NOT EXISTS `beans` (
   `id` SERIAL PRIMARY KEY COMMENT 'beans id',
   `user_id` VARCHAR(255) COMMENT 'user id',
-  `roast_id` INT NOT NULL COMMENT '焙煎度',
+  `roast_level_id` INT NOT NULL COMMENT '焙煎度',
   `processing_id` INT NOT NULL COMMENT '精製方法',
-  `producing_region` VARCHAR(255) NOT NULL COMMENT '生産地域',
+  `production_region` VARCHAR(255) NOT NULL COMMENT '生産地域',
+  `farm` VARCHAR(255) NOT NULL COMMENT '農園',
+  `altitude` INT NOT NULL COMMENT '標高',
   `kind` VARCHAR(255) NOT NULL COMMENT '品種',
-  `process` VARCHAR(255),
-  `price` SMALLINT NOT NULL COMMENT '購入価格',
-  `gram` SMALLINT NOT NULL COMMENT '購入グラム',
+  `flavor` VARCHAR(255) NOT NULL COMMENT '香り',
   `memo` VARCHAR(255) NOT NULL COMMENT 'メモ',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',

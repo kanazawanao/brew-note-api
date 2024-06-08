@@ -7,14 +7,19 @@ import (
 )
 
 type Bean struct {
-	ID             int            `json:"id" gorm:"AUTO_INCREMENT"`
-	UserId         string         `json:"userId"`
-	ProductionRegion string         `json:"ProductionRegion"`
-	Kind           string         `json:"kind"`
-	RoastLevelId   int32          `json:"roastLevelId"`
-	Price          int            `json:"price"`
-	Gram           int            `json:"gram"`
-	CreatedAt      *time.Time     `json:"createdAt"`
-	UpdatedAt      *time.Time     `json:"updatedAt"`
-	DeletedAt      gorm.DeletedAt `json:"deletedAt"`
+	ID               int            `json:"id" gorm:"AUTO_INCREMENT"`
+	UserId           string         `json:"userId"`
+	ProductionRegion string         `json:"productionRegion"`
+	Kind             string         `json:"kind"`
+	RoastLevelId     int32          `json:"roastLevelId"`
+	ProcessingId     int            `json:"processingId"`
+	Price            int            `json:"price"`
+	Gram             int            `json:"gram"`
+	Altitude         int            `json:"altitude"`
+	Farm             string         `json:"farm"`
+	Flavor           string         `json:"flavor"`
+	Memo             string         `json:"memo"`
+	CreatedAt        *time.Time     `json:"createdAt"`
+	UpdatedAt        *time.Time     `json:"updatedAt"`
+	DeletedAt        gorm.DeletedAt `json:"deletedAt"`
 }

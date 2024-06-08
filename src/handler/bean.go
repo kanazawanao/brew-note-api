@@ -26,12 +26,17 @@ func PostBean(c echo.Context) error {
 		log.Fatalf("fatal error: %s", err)
 	}
 	bean := models.Bean{
-		UserId:         claim.UserId,
+		UserId:           claim.UserId,
 		ProductionRegion: s.ProductionRegion,
-		Kind:           s.Kind,
-		RoastLevelId:   s.RoastLevelId,
-		Price:          0,
-		Gram:           0,
+		ProcessingId:     int(s.ProcessingId),
+		Kind:             s.Kind,
+		RoastLevelId:     s.RoastLevelId,
+		Price:            0,
+		Gram:             0,
+		Altitude:         int(s.Altitude),
+		Farm:             s.Farm,
+		Flavor:           s.Flavor,
+		Memo:             s.Memo,
 	}
 
 	res := services.PostBean(bean)

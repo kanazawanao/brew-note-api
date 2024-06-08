@@ -5,13 +5,13 @@ import (
 	"brew-note/src/models"
 )
 
-func PostBean(store models.Bean) models.Bean {
-	result := database.Handler.Create(&store)
+func PostBean(bean models.Bean) models.Bean {
+	result := database.Handler.Create(&bean)
 
 	if err := result.Error; err != nil {
 		panic(err.Error())
 	}
-	return store
+	return bean
 }
 
 func GetBeans(userId string) []models.Bean {

@@ -8,6 +8,11 @@ components:
         - kind
         - roastLevelId
         - price
+        - processingId
+        - altitude
+        - farm
+        - flavor
+        - memo
       properties:
         id:
           type: string
@@ -18,9 +23,19 @@ components:
         kind:
           type: string
         roastLevelId:
-          type: number
+          type: integer
+        processingId:
+          type: integer
+        altitude:
+          type: integer
+        farm:
+          type: string
+        flavor:
+          type: string
+        memo:
+          type: string
         price:
-          type: number
+          type: integer
           nullable: true
           format: double
     CreateBean:
@@ -29,6 +44,11 @@ components:
         - productionRegion
         - kind
         - roastLevelId
+        - processingId
+        - altitude
+        - farm
+        - flavor
+        - memo
       properties:
         productionRegion:
           type: string
@@ -40,3 +60,13 @@ components:
           type: integer
         gram:
           type: integer
+        processingId:
+          type: integer
+        altitude:
+          type: integer
+        farm:
+          type: string
+        flavor:
+          type: string
+        memo:
+          type: string
