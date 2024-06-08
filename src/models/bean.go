@@ -17,6 +17,7 @@ type Bean struct {
 	Farm             string         `json:"farm"`
 	Flavor           string         `json:"flavor"`
 	Memo             string         `json:"memo"`
+	RoastedAt        *time.Time     `json:"roastedAt"`
 	CreatedAt        *time.Time     `json:"createdAt"`
 	UpdatedAt        *time.Time     `json:"updatedAt"`
 	DeletedAt        gorm.DeletedAt `json:"deletedAt"`

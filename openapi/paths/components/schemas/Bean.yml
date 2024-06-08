@@ -12,6 +12,7 @@ components:
         - farm
         - flavor
         - memo
+        - roastedAt
       properties:
         id:
           type: string
@@ -33,6 +34,8 @@ components:
           type: string
         memo:
           type: string
+        roastedAt:
+          type: string
     CreateBean:
       type: object
       required:
@@ -44,6 +47,7 @@ components:
         - farm
         - flavor
         - memo
+        - roastedAt
       properties:
         productionRegion:
           type: string
@@ -60,4 +64,6 @@ components:
         flavor:
           type: string
         memo:
+          type: string
+        roastedAt:
           type: string

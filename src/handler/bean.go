@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 
 	openapi "github.com/brew-note/api"
 
@@ -24,6 +25,12 @@ func PostBean(c echo.Context) error {
 	claim, err := services.CheckFirebaseJWT(token)
 	if err != nil {
 		log.Fatalf("fatal error: %s", err)
+		return c.String(http.StatusUnauthorized, "unauthorized")
+	}
+	roastedAt, err := time.Parse(s.RoastedAt, time.RFC3339)
+	if err != nil {
+		log.Fatalf("fatal error: %s", err)
+		return c.String(http.StatusBadRequest, "bad request")
 	}
 	bean := models.Bean{
 		UserId:           claim.UserId,
@@ -35,6 +42,7 @@ func PostBean(c echo.Context) error {
 		Farm:             s.Farm,
 		Flavor:           s.Flavor,
 		Memo:             s.Memo,
+		RoastedAt:        &roastedAt,
 	}
 
 	res := services.PostBean(bean)
