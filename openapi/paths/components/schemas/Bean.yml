@@ -4,7 +4,7 @@ components:
       required:
         - id
         - beanId
-        - productionArea
+        - productionRegion
         - kind
         - roastLevelId
         - price
@@ -13,7 +13,7 @@ components:
           type: string
         beanId:
           type: string
-        productionArea:
+        productionRegion:
           type: string
         kind:
           type: string
@@ -26,11 +26,11 @@ components:
     CreateBean:
       type: object
       required:
-        - productionArea
+        - productionRegion
         - kind
         - roastLevelId
       properties:
-        productionArea:
+        productionRegion:
           type: string
         kind:
           type: string

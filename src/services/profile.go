@@ -16,7 +16,6 @@ func GetProfile(token string) models.User {
 	if err := result.Error; err != nil {
 		panic(err.Error())
 	}
-	// userにメールアドレスをつめる？
 
 	return user
 }

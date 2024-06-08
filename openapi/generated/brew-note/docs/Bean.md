@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **BeanId** | **string** |  | 
-**ProductionArea** | **string** |  | 
+**ProductionRegion** | **string** |  | 
 **Kind** | **string** |  | 
 **RoastLevelId** | **float32** |  | 
 **Price** | **NullableFloat64** |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewBean
 
-`func NewBean(id string, beanId string, productionArea string, kind string, roastLevelId float32, price NullableFloat64, ) *Bean`
+`func NewBean(id string, beanId string, productionRegion string, kind string, roastLevelId float32, price NullableFloat64, ) *Bean`
 
 NewBean instantiates a new Bean object
 This constructor will assign default values to properties that have it defined,
@@ -70,24 +70,24 @@ and a boolean to check if the value has been set.
 SetBeanId sets BeanId field to given value.
 
 
-### GetProductionArea
+### GetProductionRegion
 
-`func (o *Bean) GetProductionArea() string`
+`func (o *Bean) GetProductionRegion() string`
 
-GetProductionArea returns the ProductionArea field if non-nil, zero value otherwise.
+GetProductionRegion returns the ProductionRegion field if non-nil, zero value otherwise.
 
-### GetProductionAreaOk
+### GetProductionRegionOk
 
-`func (o *Bean) GetProductionAreaOk() (*string, bool)`
+`func (o *Bean) GetProductionRegionOk() (*string, bool)`
 
-GetProductionAreaOk returns a tuple with the ProductionArea field if it's non-nil, zero value otherwise
+GetProductionRegionOk returns a tuple with the ProductionRegion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProductionArea
+### SetProductionRegion
 
-`func (o *Bean) SetProductionArea(v string)`
+`func (o *Bean) SetProductionRegion(v string)`
 
-SetProductionArea sets ProductionArea field to given value.
+SetProductionRegion sets ProductionRegion field to given value.
 
 
 ### GetKind

@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    createBean := *openapiclient.NewCreateBean("ProductionArea_example", "Kind_example", int32(123)) // CreateBean | 
+    createBean := *openapiclient.NewCreateBean("ProductionRegion_example", "Kind_example", int32(123)) // CreateBean | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

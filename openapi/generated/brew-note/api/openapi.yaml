@@ -167,18 +167,18 @@ components:
           type: string
     Bean:
       example:
-        productionArea: productionArea
         kind: kind
         price: 6.027456183070403
         roastLevelId: 0.8008281904610115
         id: id
+        productionRegion: productionRegion
         beanId: beanId
       properties:
         id:
           type: string
         beanId:
           type: string
-        productionArea:
+        productionRegion:
           type: string
         kind:
           type: string
@@ -193,17 +193,17 @@ components:
       - id
       - kind
       - price
-      - productionArea
+      - productionRegion
       - roastLevelId
     CreateBean:
       example:
-        productionArea: productionArea
         kind: kind
         price: 6
         gram: 1
         roastLevelId: 0
+        productionRegion: productionRegion
       properties:
-        productionArea:
+        productionRegion:
           type: string
         kind:
           type: string
@@ -215,7 +215,7 @@ components:
           type: integer
       required:
       - kind
-      - productionArea
+      - productionRegion
       - roastLevelId
       type: object
     RoastLevel:

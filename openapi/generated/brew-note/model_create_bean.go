@@ -19,7 +19,7 @@ var _ MappedNullable = &CreateBean{}
 
 // CreateBean struct for CreateBean
 type CreateBean struct {
-	ProductionArea string `json:"productionArea"`
+	ProductionRegion string `json:"productionRegion"`
 	Kind string `json:"kind"`
 	RoastLevelId int32 `json:"roastLevelId"`
 	Price *int32 `json:"price,omitempty"`
@@ -30,9 +30,9 @@ type CreateBean struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateBean(productionArea string, kind string, roastLevelId int32) *CreateBean {
+func NewCreateBean(productionRegion string, kind string, roastLevelId int32) *CreateBean {
 	this := CreateBean{}
-	this.ProductionArea = productionArea
+	this.ProductionRegion = productionRegion
 	this.Kind = kind
 	this.RoastLevelId = roastLevelId
 	return &this
@@ -46,28 +46,28 @@ func NewCreateBeanWithDefaults() *CreateBean {
 	return &this
 }
 
-// GetProductionArea returns the ProductionArea field value
-func (o *CreateBean) GetProductionArea() string {
+// GetProductionRegion returns the ProductionRegion field value
+func (o *CreateBean) GetProductionRegion() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ProductionArea
+	return o.ProductionRegion
 }
 
-// GetProductionAreaOk returns a tuple with the ProductionArea field value
+// GetProductionRegionOk returns a tuple with the ProductionRegion field value
 // and a boolean to check if the value has been set.
-func (o *CreateBean) GetProductionAreaOk() (*string, bool) {
+func (o *CreateBean) GetProductionRegionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ProductionArea, true
+	return &o.ProductionRegion, true
 }
 
-// SetProductionArea sets field value
-func (o *CreateBean) SetProductionArea(v string) {
-	o.ProductionArea = v
+// SetProductionRegion sets field value
+func (o *CreateBean) SetProductionRegion(v string) {
+	o.ProductionRegion = v
 }
 
 // GetKind returns the Kind field value
@@ -192,7 +192,7 @@ func (o CreateBean) MarshalJSON() ([]byte, error) {
 
 func (o CreateBean) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["productionArea"] = o.ProductionArea
+	toSerialize["productionRegion"] = o.ProductionRegion
 	toSerialize["kind"] = o.Kind
 	toSerialize["roastLevelId"] = o.RoastLevelId
 	if !IsNil(o.Price) {

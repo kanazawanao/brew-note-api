@@ -15,14 +15,40 @@ INSERT IGNORE INTO `roast_levels` (`id`, `level`, `name`) VALUES
 (7, 7,'French'),
 (8, 8,'Italian');
 
+INSERT INTO `roast_levels`(`level`, `name`) VALUES
+('1','Light roast'),
+('2', 'Chinamon roast'),
+('3', 'Medium roast'),
+('4', 'High roast'),
+('5', 'City roast'),
+('6', 'FUllcity roast'),
+('7', 'French roast'),
+('8', 'Italian roast');
+
+CREATE TABLE IF NOT EXISTS `processings` (
+  `id` SERIAL PRIMARY KEY COMMENT 'processings id',
+  `method` VARCHAR(255) COMMENT '精製方法',
+  `description` VARCHAR(255) COMMENT '説明'
+) ENGINE=InnoDB COMMENT='processings table';
+
+INSERT INTO `processings`(`method`, `description`) VALUES
+('Washed','スッキリとしたクリアなフレーバー。産地特有の味をダイレクトに。'),
+('Honey', 'washedとnaturalの中間。クリアな質感もありながら、香りや甘みも。'),
+('Natural', '濃厚なフレーバー。香りや甘みが濃厚。フルーティー。'),
+('Anaerobic', '空気がない状態(嫌気)で発酵させる特殊な方法。複雑な味・お酒のようなフレーバー。'),
+('other', 'その他');
+
 CREATE TABLE IF NOT EXISTS `beans` (
   `id` SERIAL PRIMARY KEY COMMENT 'beans id',
-  `user_id` VARCHAR(255) NOT NULL COMMENT 'user id',
-  `roast_level_id` BIGINT UNSIGNED NOT NULL COMMENT 'roast id',
-  `production_area` VARCHAR(255) NOT NULL COMMENT '産地',
+  `user_id` VARCHAR(255) COMMENT 'user id',
+  `roast_id` INT NOT NULL COMMENT '焙煎度',
+  `processing_id` INT NOT NULL COMMENT '精製方法',
+  `producing_region` VARCHAR(255) NOT NULL COMMENT '生産地域',
   `kind` VARCHAR(255) NOT NULL COMMENT '品種',
+  `process` VARCHAR(255),
   `price` SMALLINT NOT NULL COMMENT '購入価格',
   `gram` SMALLINT NOT NULL COMMENT '購入グラム',
+  `memo` VARCHAR(255) NOT NULL COMMENT 'メモ',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
   `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date'
@@ -64,4 +90,6 @@ DROP TABLE IF EXISTS `reviews`;
 DROP TABLE IF EXISTS `recipe_steps`;
 DROP TABLE IF EXISTS `recipes`;
 DROP TABLE IF EXISTS `beans`;
+DROP TABLE IF EXISTS `processings`;
 DROP TABLE IF EXISTS `roast_levels`;
+DROP TABLE IF EXISTS `users`;

@@ -9,7 +9,7 @@ POST http://localhost:1323/beans
 content-type: application/json
 
 {
-    "productionArea": "エチオピア",
+    "productionRegion": "エチオピア",
     "kind": "品種",
     "roastId": 1
 }

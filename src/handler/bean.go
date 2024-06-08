@@ -27,7 +27,7 @@ func PostBean(c echo.Context) error {
 	}
 	bean := models.Bean{
 		UserId:         claim.UserId,
-		ProductionArea: s.ProductionArea,
+		ProductionRegion: s.ProductionRegion,
 		Kind:           s.Kind,
 		RoastLevelId:   s.RoastLevelId,
 		Price:          0,

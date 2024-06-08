@@ -21,7 +21,7 @@ var _ MappedNullable = &Bean{}
 type Bean struct {
 	Id string `json:"id"`
 	BeanId string `json:"beanId"`
-	ProductionArea string `json:"productionArea"`
+	ProductionRegion string `json:"productionRegion"`
 	Kind string `json:"kind"`
 	RoastLevelId float32 `json:"roastLevelId"`
 	Price NullableFloat64 `json:"price"`
@@ -31,11 +31,11 @@ type Bean struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBean(id string, beanId string, productionArea string, kind string, roastLevelId float32, price NullableFloat64) *Bean {
+func NewBean(id string, beanId string, productionRegion string, kind string, roastLevelId float32, price NullableFloat64) *Bean {
 	this := Bean{}
 	this.Id = id
 	this.BeanId = beanId
-	this.ProductionArea = productionArea
+	this.ProductionRegion = productionRegion
 	this.Kind = kind
 	this.RoastLevelId = roastLevelId
 	this.Price = price
@@ -98,28 +98,28 @@ func (o *Bean) SetBeanId(v string) {
 	o.BeanId = v
 }
 
-// GetProductionArea returns the ProductionArea field value
-func (o *Bean) GetProductionArea() string {
+// GetProductionRegion returns the ProductionRegion field value
+func (o *Bean) GetProductionRegion() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ProductionArea
+	return o.ProductionRegion
 }
 
-// GetProductionAreaOk returns a tuple with the ProductionArea field value
+// GetProductionRegionOk returns a tuple with the ProductionRegion field value
 // and a boolean to check if the value has been set.
-func (o *Bean) GetProductionAreaOk() (*string, bool) {
+func (o *Bean) GetProductionRegionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ProductionArea, true
+	return &o.ProductionRegion, true
 }
 
-// SetProductionArea sets field value
-func (o *Bean) SetProductionArea(v string) {
-	o.ProductionArea = v
+// SetProductionRegion sets field value
+func (o *Bean) SetProductionRegion(v string) {
+	o.ProductionRegion = v
 }
 
 // GetKind returns the Kind field value
@@ -208,7 +208,7 @@ func (o Bean) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["beanId"] = o.BeanId
-	toSerialize["productionArea"] = o.ProductionArea
+	toSerialize["productionRegion"] = o.ProductionRegion
 	toSerialize["kind"] = o.Kind
 	toSerialize["roastLevelId"] = o.RoastLevelId
 	toSerialize["price"] = o.Price.Get()
