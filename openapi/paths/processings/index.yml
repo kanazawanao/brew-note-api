@@ -1,0 +1,17 @@
+get:
+  summary: Get Processings
+  description: processing一覧を取得します。
+  operationId: getProcessings
+  tags:
+    - brew-note
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Processing.yml#/components/schemas/Processing"
+    500:
+      description: Internal Server Error

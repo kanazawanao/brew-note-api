@@ -16,3 +16,6 @@ content-type: application/json
 
 ###
 GET http://localhost:1323/roast-levels
+
+###
+GET http://localhost:1323/processings

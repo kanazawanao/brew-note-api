@@ -33,6 +33,7 @@ func NewRouter() *echo.Echo {
 	e.GET("/beans/:beanId", handler.GetBean)
 
 	e.GET("/roast-levels", handler.GetRoastLevels)
+	e.GET("/processings", handler.GetProcessings)
 
 	return e
 }

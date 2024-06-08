@@ -1,0 +1,14 @@
+components:
+  schemas:
+    Processing:
+      required:
+        - id
+        - method
+        - description
+      properties:
+        id:
+          type: number
+        method:
+          type: string
+        description:
+          type: string
