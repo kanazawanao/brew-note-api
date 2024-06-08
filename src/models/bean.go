@@ -13,8 +13,6 @@ type Bean struct {
 	Kind             string         `json:"kind"`
 	RoastLevelId     int32          `json:"roastLevelId"`
 	ProcessingId     int            `json:"processingId"`
-	Price            int            `json:"price"`
-	Gram             int            `json:"gram"`
 	Altitude         int            `json:"altitude"`
 	Farm             string         `json:"farm"`
 	Flavor           string         `json:"flavor"`

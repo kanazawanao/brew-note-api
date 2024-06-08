@@ -7,7 +7,6 @@ components:
         - productionRegion
         - kind
         - roastLevelId
-        - price
         - processingId
         - altitude
         - farm
@@ -34,10 +33,6 @@ components:
           type: string
         memo:
           type: string
-        price:
-          type: integer
-          nullable: true
-          format: double
     CreateBean:
       type: object
       required:
@@ -55,10 +50,6 @@ components:
         kind:
           type: string
         roastLevelId:
-          type: integer
-        price:
-          type: integer
-        gram:
           type: integer
         processingId:
           type: integer

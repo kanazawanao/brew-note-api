@@ -31,8 +31,6 @@ func PostBean(c echo.Context) error {
 		ProcessingId:     int(s.ProcessingId),
 		Kind:             s.Kind,
 		RoastLevelId:     s.RoastLevelId,
-		Price:            0,
-		Gram:             0,
 		Altitude:         int(s.Altitude),
 		Farm:             s.Farm,
 		Flavor:           s.Flavor,
