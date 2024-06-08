@@ -1,5 +1,5 @@
 .env
-app/*
-tmp/*
+app/
+tmp/
 brew_note.logfile
-./openapi/generated/*
+openapi/generated/
