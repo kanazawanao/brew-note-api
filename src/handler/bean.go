@@ -27,7 +27,9 @@ func PostBean(c echo.Context) error {
 		log.Fatalf("fatal error: %s", err)
 		return c.String(http.StatusUnauthorized, "unauthorized")
 	}
-	roastedAt, err := time.Parse(s.RoastedAt, time.RFC3339)
+
+	layout := "2006-01-02"
+	roastedAt, err := time.Parse(layout, s.RoastedAt)
 	if err != nil {
 		log.Fatalf("fatal error: %s", err)
 		return c.String(http.StatusBadRequest, "bad request")
