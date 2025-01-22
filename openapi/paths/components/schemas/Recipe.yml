@@ -5,18 +5,20 @@ components:
         - id
         - extractionEquipment
         - coffeeType
+        - waterTemperature
+        - beanDose
         - steps
       properties:
         id:
-          type: number
+          type: integer
         extractionEquipment:
           type: string
         coffeeType:
           type: string
-        water_temperature:
-          type: number
-        bean_dose:
-          type: number
+        waterTemperature:
+          type: integer
+        beanDose:
+          type: integer
         steps:
           type: array
           items:
@@ -26,6 +28,8 @@ components:
       required:
         - extractionEquipment
         - coffeeType
+        - waterTemperature
+        - beanDose
         - steps
       properties:
         extractionEquipment:
@@ -33,9 +37,9 @@ components:
         coffeeType:
           type: string
         waterTemperature:
-          type: number
+          type: integer
         beanDose:
-          type: number
+          type: integer
         steps:
           type: array
           items:

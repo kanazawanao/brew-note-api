@@ -15,7 +15,7 @@ components:
         - roastedAt
       properties:
         id:
-          type: string
+          type: integer
         beanId:
           type: string
         productionRegion:

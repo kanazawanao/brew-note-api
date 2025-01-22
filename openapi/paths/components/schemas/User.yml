@@ -3,7 +3,7 @@ components:
     User:
       properties:
         id:
-          type: string
+          type: integer
         name:
           type: string
         email:

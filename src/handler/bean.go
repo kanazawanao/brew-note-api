@@ -9,7 +9,6 @@ import (
 	"time"
 
 	openapi "github.com/brew-note/api"
-
 	"github.com/labstack/echo/v4"
 )
 

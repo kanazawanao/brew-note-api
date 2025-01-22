@@ -8,13 +8,13 @@ components:
         - seconds
       properties:
         id:
-          type: number
+          type: integer
         stepNumber:
-          type: number
+          type: integer
         memo:
           type: string
         seconds:
-          type: number
+          type: integer
     CreateRecipeStep:
       required:
         - stepNumber
@@ -22,8 +22,8 @@ components:
         - seconds
       properties:
         stepNumber:
-          type: number
+          type: integer
         memo:
           type: string
         seconds:
-          type: number
+          type: integer
