@@ -49,7 +49,9 @@ CREATE TABLE IF NOT EXISTS `recipes` (
   `id` SERIAL PRIMARY KEY NOT NULL COMMENT 'recipe id',
   `user_id` VARCHAR(255) NOT NULL COMMENT 'user id',
   `extraction_equipment` VARCHAR(255) NOT NULL COMMENT '抽出器具',
-  `coffee_type` VARCHAR(255) NOT NULL COMMENT '種類',
+  `coffee_type` VARCHAR(255) NOT NULL COMMENT '珈琲の種類',
+  `water_temperature` INT NOT NULL COMMENT '抽出温度',
+  `bean_dose` INT NOT NULL COMMENT '豆の量（グラム）',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'create_date',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update_date',
   `deleted_at` TIMESTAMP NULL DEFAULT NULL COMMENT 'delete_date'
@@ -57,12 +59,10 @@ CREATE TABLE IF NOT EXISTS `recipes` (
 
 CREATE TABLE IF NOT EXISTS `recipe_steps` (
   `id` SERIAL PRIMARY KEY NOT NULL COMMENT 'recipe step id',
-  `user_id` VARCHAR(255) NOT NULL COMMENT 'user id',
   `recipe_id` BIGINT UNSIGNED NOT NULL COMMENT 'recipe id',
   `step_number` SMALLINT NOT NULL COMMENT '順番',
   `memo` VARCHAR(255) NOT NULL COMMENT 'メモ',
-  `extraction_temperature` VARCHAR(255) NOT NULL COMMENT '抽出温度',
-  `seconds` VARCHAR(255) NOT NULL COMMENT '秒数',
+  `seconds` INT NOT NULL COMMENT '秒数',
   FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB COMMENT='recipe table';
 

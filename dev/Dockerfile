@@ -1,10 +1,10 @@
-FROM golang:1.20.5-alpine
+FROM golang:1.23.5-alpine
 
 WORKDIR /app
 
 RUN apk upgrade --update && \
     apk --no-cache add git
-RUN go install github.com/cosmtrek/air@latest
+RUN go install github.com/air-verse/air@latest
 
 COPY go.mod go.sum ./
 COPY openapi/ ./openapi

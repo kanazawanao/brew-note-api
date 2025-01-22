@@ -5,7 +5,6 @@ components:
         - id
         - stepNumber
         - memo
-        - extractionTemperature
         - seconds
       properties:
         id:
@@ -14,22 +13,17 @@ components:
           type: number
         memo:
           type: string
-        extractionTemperature:
-          type: number
         seconds:
           type: number
     CreateRecipeStep:
       required:
         - stepNumber
         - memo
-        - extractionTemperature
         - seconds
       properties:
         stepNumber:
           type: number
         memo:
           type: string
-        extractionTemperature:
-          type: number
         seconds:
           type: number

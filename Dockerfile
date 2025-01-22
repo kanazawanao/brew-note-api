@@ -1,4 +1,4 @@
-FROM golang:1.20.5-alpine as build-step
+FROM golang:1.23.5-alpine as build-step
 
 WORKDIR /go/api
 

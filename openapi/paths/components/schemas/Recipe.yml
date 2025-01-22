@@ -13,6 +13,10 @@ components:
           type: string
         coffeeType:
           type: string
+        water_temperature:
+          type: number
+        bean_dose:
+          type: number
         steps:
           type: array
           items:
@@ -28,6 +32,10 @@ components:
           type: string
         coffeeType:
           type: string
+        waterTemperature:
+          type: number
+        beanDose:
+          type: number
         steps:
           type: array
           items:
