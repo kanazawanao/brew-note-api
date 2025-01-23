@@ -43,4 +43,4 @@ components:
         steps:
           type: array
           items:
-            $ref: "./RecipeStep.yml#/components/schemas/RecipeStep"
+            $ref: "./RecipeStep.yml#/components/schemas/CreateRecipeStep"
