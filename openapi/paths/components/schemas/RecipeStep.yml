@@ -4,26 +4,32 @@ components:
       required:
         - id
         - stepNumber
-        - memo
         - seconds
+        - amountWater
+        - memo
       properties:
         id:
           type: integer
         stepNumber:
           type: integer
-        memo:
-          type: string
         seconds:
           type: integer
+        amountWater:
+          type: integer
+        memo:
+          type: string
     CreateRecipeStep:
       required:
         - stepNumber
-        - memo
         - seconds
+        - amountWater
+        - memo
       properties:
         stepNumber:
           type: integer
-        memo:
-          type: string
         seconds:
           type: integer
+        amountWater:
+          type: integer
+        memo:
+          type: string

@@ -5,7 +5,7 @@ import (
 	"brew-note/src/models"
 )
 
-func PostRecipe(recipe models.Recipe) models.Recipe {
+func CreateRecipe(recipe models.Recipe) models.Recipe {
 	result := database.Handler.Create(&recipe)
 
 	if err := result.Error; err != nil {

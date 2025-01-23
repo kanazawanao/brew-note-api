@@ -33,7 +33,17 @@ func PostRecipe(c echo.Context) error {
 		WaterTemperature:    int(s.WaterTemperature),
 		BeanDose:            int(s.BeanDose),
 	}
-	res := services.PostRecipe(recipe)
+	res := services.CreateRecipe(recipe)
+	for _, step := range s.Steps {
+		recipeStep := models.RecipeStep{
+			RecipeId: res.ID,
+			StepNumber: int(step.StepNumber),
+			Seconds: int(step.Seconds),
+			AmountWater: int(step.AmountWater),
+			Memo: step.Memo,
+		}
+		services.CreateRecipeStep(recipeStep)
+	}
 	return c.JSON(http.StatusOK, res)
 }
 
