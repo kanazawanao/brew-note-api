@@ -36,11 +36,11 @@ func PostRecipe(c echo.Context) error {
 	res := services.CreateRecipe(recipe)
 	for _, step := range s.Steps {
 		recipeStep := models.RecipeStep{
-			RecipeId: res.ID,
-			StepNumber: int(step.StepNumber),
-			Seconds: int(step.Seconds),
+			RecipeId:    res.ID,
+			StepNumber:  int(step.StepNumber),
+			Seconds:     int(step.Seconds),
 			AmountWater: int(step.AmountWater),
-			Memo: step.Memo,
+			Memo:        step.Memo,
 		}
 		services.CreateRecipeStep(recipeStep)
 	}
