@@ -1,0 +1,14 @@
+components:
+  schemas:
+    GrindSize:
+      required:
+        - id
+        - size
+        - description
+      properties:
+        id:
+          type: integer
+        size:
+          type: integer
+        description:
+          type: string

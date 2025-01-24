@@ -1,0 +1,17 @@
+get:
+  summary: Get GrindSizes
+  description: grindSize一覧を取得します。
+  operationId: getGrindSizes
+  tags:
+    - brew-note
+  responses:
+    200:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/GrindSize.yml#/components/schemas/GrindSize"
+    500:
+      description: Internal Server Error

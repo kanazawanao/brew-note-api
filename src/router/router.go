@@ -45,5 +45,8 @@ func NewRouter() *echo.Echo {
 	e.GET("/recipes", handler.GetRecipes)
 	e.GET("/recipes/:id", handler.GetRecipe)
 
+	// grind sizes
+	e.GET("/grind-sizes", handler.GetGrindSizes)
+
 	return e
 }
