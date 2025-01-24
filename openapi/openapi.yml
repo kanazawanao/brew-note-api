@@ -18,3 +18,5 @@ paths:
     $ref: ./paths/roastLevels/index.yml
   /recipes:
     $ref: ./paths/recipes/index.yml
+  /grind-sizes:
+    $ref: ./paths/grindSizes/index.yml

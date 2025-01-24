@@ -5,7 +5,7 @@ get:
   security:
     - Brew-Note-Auth-Token: []
   tags:
-    - brew-ntoe
+    - brew-note
   responses:
     200:
       description: ok
