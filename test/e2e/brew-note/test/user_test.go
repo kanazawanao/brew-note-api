@@ -16,7 +16,7 @@ func TestBrewNoteUsers(t *testing.T) {
 	database.TruncateTable()
 	database.ImportUserData()
 
-	brewNoteApi := api.BrewNoteClient().BrewNtoeApi
+	brewNoteApi := api.BrewNoteClient().BrewNoteApi
 
 	t.Run("Get Users", func(t *testing.T) {
 		result, response, _ := brewNoteApi.GetUsers(context.Background()).Execute()
