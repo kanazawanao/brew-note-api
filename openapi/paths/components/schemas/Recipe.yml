@@ -4,6 +4,7 @@ components:
       required:
         - id
         - title
+        - description
         - grindSizeId
         - extractionEquipment
         - coffeeType
@@ -14,6 +15,8 @@ components:
         id:
           type: integer
         title:
+          type: string
+        description:
           type: string
         grindSizeId:
           type: integer
@@ -33,6 +36,7 @@ components:
       type: object
       required:
         - title
+        - description
         - grindSizeId
         - extractionEquipment
         - coffeeType
@@ -41,6 +45,8 @@ components:
         - steps
       properties:
         title:
+          type: string
+        description:
           type: string
         grindSizeId:
           type: integer
