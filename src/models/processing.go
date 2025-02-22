@@ -1,7 +1,7 @@
 package models
 
 type Processing struct {
-	ID          string `json:"id"`
+	ID          int    `json:"id"`
 	Method      string `json:"method"`
 	Description string `json:"description"`
 }

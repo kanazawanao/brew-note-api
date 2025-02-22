@@ -28,7 +28,7 @@ func PostRecipe(c echo.Context) error {
 
 	recipe := models.Recipe{
 		UserId:              claim.UserId,
-		GrindSizeId:				 int(s.GrindSizeId),
+		GrindSizeId:         int(s.GrindSizeId),
 		ExtractionEquipment: s.ExtractionEquipment,
 		CoffeeType:          s.CoffeeType,
 		WaterTemperature:    int(s.WaterTemperature),

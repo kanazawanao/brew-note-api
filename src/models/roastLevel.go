@@ -1,7 +1,7 @@
 package models
 
 type RoastLevel struct {
-	ID    string `json:"id"`
+	ID    int    `json:"id"`
 	Level string `json:"level"`
 	Name  string `json:"name"`
 }

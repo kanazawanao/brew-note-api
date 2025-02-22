@@ -1,7 +1,7 @@
 package models
 
 type GrindSize struct {
-	ID          string `json:"id"`
+	ID          int    `json:"id"`
 	Size        string `json:"size"`
 	Description string `json:"description"`
 }
