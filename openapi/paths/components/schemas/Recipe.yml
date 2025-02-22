@@ -3,6 +3,7 @@ components:
     Recipe:
       required:
         - id
+        - title
         - grindSizeId
         - extractionEquipment
         - coffeeType
@@ -12,6 +13,8 @@ components:
       properties:
         id:
           type: integer
+        title:
+          type: string
         grindSizeId:
           type: integer
         extractionEquipment:
@@ -29,6 +32,7 @@ components:
     CreateRecipe:
       type: object
       required:
+        - title
         - grindSizeId
         - extractionEquipment
         - coffeeType
@@ -36,6 +40,8 @@ components:
         - beanDose
         - steps
       properties:
+        title:
+          type: string
         grindSizeId:
           type: integer
         extractionEquipment:

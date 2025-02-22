@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `beans` (
 CREATE TABLE IF NOT EXISTS `recipes` (
   `id` SERIAL PRIMARY KEY NOT NULL COMMENT 'recipe id',
   `user_id` VARCHAR(255) NOT NULL COMMENT 'user id',
+  `title` VARCHAR(255) NOT NULL COMMENT 'title',
   `grind_size_id` BIGINT UNSIGNED NOT NULL COMMENT 'grind size id',
   `extraction_equipment` VARCHAR(255) NOT NULL COMMENT '抽出器具',
   `coffee_type` VARCHAR(255) NOT NULL COMMENT '珈琲の種類',
